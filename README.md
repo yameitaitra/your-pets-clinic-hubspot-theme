@@ -1,2 +1,1 @@
-# your-pets-clinic-hubspot-theme
-hubspot cms practice
+# Your Pets Clinic HubSpot Theme

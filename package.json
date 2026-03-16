@@ -1,0 +1,14 @@
+{
+    "name": "your-pets-clinic-hubspot-theme",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "upload": "hs cms upload --account=hubspot-cms-training yamei-pets-clinic-theme yamei-pets-clinic-theme",
+      "watch": "hs cms watch --account=hubspot-cms-training --initial-upload yamei-pets-clinic-theme yamei-pets-clinic-theme",
+      "preview": "hs cms theme preview yamei-pets-clinic-theme yamei-pets-clinic-theme"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+  }
