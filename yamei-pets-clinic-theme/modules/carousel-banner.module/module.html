@@ -1,0 +1,16 @@
+{% for slide in module.slides %}
+<section class="carousel-banner min-height--{{ module.style_fields.min_height }} text--{{ module.style_fields.text_alignment }}">
+  {% if slide.slide_image.src %}
+    <img src="{{ slide.slide_image.src }}" alt="{{ slide.slide_image.alt }}" class="carousel-banner__bg">
+  {% endif %}
+  <div class="carousel-banner__overlay" style="opacity: {{ module.style_fields.overlay_opacity / 100 }}"></div>
+  <div class="carousel-banner__content">
+    {% if slide.slide_badge %}<span class="carousel-banner__badge">{{ slide.slide_badge }}</span>{% endif %}
+    {% if slide.slide_headline %}<div class="carousel-banner__headline">{{ slide.slide_headline }}</div>{% endif %}
+    {% if slide.slide_subtext %}<p class="carousel-banner__subtext">{{ slide.slide_subtext }}</p>{% endif %}
+    {% if slide.slide_cta_text %}
+      <a href="{{ slide.slide_cta_url.url.href }}" class="carousel-banner__cta">{{ slide.slide_cta_text }}</a>
+    {% endif %}
+  </div>
+</section>
+{% endfor %}

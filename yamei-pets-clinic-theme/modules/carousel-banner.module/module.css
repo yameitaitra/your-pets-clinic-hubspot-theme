@@ -1,0 +1,14 @@
+.carousel-banner { position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.carousel-banner.min-height--screen { min-height: 100vh; }
+.carousel-banner.min-height--large { min-height: 600px; }
+.carousel-banner.min-height--medium { min-height: 400px; }
+.carousel-banner.text--left { text-align: left; }
+.carousel-banner.text--center { text-align: center; }
+.carousel-banner.text--right { text-align: right; }
+.carousel-banner__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.carousel-banner__overlay { position: absolute; inset: 0; background: #000; }
+.carousel-banner__content { position: relative; z-index: 2; color: #fff; padding: 2rem; max-width: 800px; }
+.carousel-banner__badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 6px 16px; border-radius: 20px; margin-bottom: 1rem; font-size: 14px; }
+.carousel-banner__headline { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; }
+.carousel-banner__subtext { font-size: 1.1rem; margin-bottom: 1.5rem; opacity: 0.9; }
+.carousel-banner__cta { display: inline-block; background: #fff; color: #000; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 600; }

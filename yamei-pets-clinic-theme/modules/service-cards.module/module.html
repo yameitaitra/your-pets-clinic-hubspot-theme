@@ -1,0 +1,29 @@
+{% set rows = hubdb_table_rows(module.hubdb_table_id, 'orderBy=name') %}
+<section class="service-cards">
+  <div class="service-cards__header">
+    {% if module.section_label %}<p class="service-cards__label">{{ module.section_label }}</p>{% endif %}
+    {% if module.section_title %}<h2 class="service-cards__title">{{ module.section_title }}</h2>{% endif %}
+    {% if module.section_subtitle %}<p class="service-cards__subtitle">{{ module.section_subtitle }}</p>{% endif %}
+  </div>
+  <div class="service-cards__grid cols--{{ module.style_fields.card_columns }} gap--{{ module.style_fields.gap }}">
+    {% for row in rows %}
+      {% if not module.show_popular_only or row.popular %}
+      <div class="service-card radius--{{ module.style_fields.card_radius }}"
+           style="background-color: {{ module.style_fields.card_background.color }}">
+        {% if row.image %}<img src="{{ row.image.url }}" alt="{{ row.name }}" class="service-card__img">{% endif %}
+        <div class="service-card__body">
+          <span class="service-card__category">{{ row.category }}</span>
+          <h3 class="service-card__name">{{ row.name }}</h3>
+          <p class="service-card__desc">{{ row.description }}</p>
+          {% if module.show_price %}<p class="service-card__price">{{ row.price }} · {{ row.duration }}</p>{% endif %}
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% if module.cta_text %}
+  <div class="service-cards__footer">
+    <a href="{{ module.cta_url.url.href }}" class="service-cards__cta">{{ module.cta_text }}</a>
+  </div>
+  {% endif %}
+</section>

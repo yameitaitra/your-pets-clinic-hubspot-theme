@@ -1,0 +1,51 @@
+[
+    {
+      "id": "slides",
+      "name": "slides",
+      "label": "Slides",
+      "type": "group",
+      "occurrence": { "min": 1, "max": 10, "default": 3 },
+      "children": [
+        { "id": "slide_image", "name": "slide_image", "label": "Slide Image", "type": "image" },
+        { "id": "slide_badge", "name": "slide_badge", "label": "Badge Text", "type": "text", "default": "🏥 Open 7 Days a Week" },
+        { "id": "slide_headline", "name": "slide_headline", "label": "Headline", "type": "richtext" },
+        { "id": "slide_subtext", "name": "slide_subtext", "label": "Subtext", "type": "text" },
+        { "id": "slide_cta_text", "name": "slide_cta_text", "label": "CTA Text", "type": "text" },
+        { "id": "slide_cta_url", "name": "slide_cta_url", "label": "CTA URL", "type": "link" }
+      ],
+      "default": [
+        { "slide_badge": "🏥 Open 7 Days a Week", "slide_subtext": "Compassionate Care for Every Pet" },
+        { "slide_badge": "🔬 In-House Lab Results", "slide_subtext": "Advanced Diagnostics & Surgery" },
+        { "slide_badge": "🏆 Award-Winning Veterinary Care", "slide_subtext": "Meet Our Expert Veterinary Team" }
+      ]
+    },
+    { "id": "autoplay", "name": "autoplay", "label": "Autoplay", "type": "boolean", "default": true },
+    { "id": "autoplay_speed", "name": "autoplay_speed", "label": "Autoplay Speed (ms)", "type": "number", "default": 5000 },
+    { "id": "show_dots", "name": "show_dots", "label": "Show Dots", "type": "boolean", "default": true },
+    { "id": "show_arrows", "name": "show_arrows", "label": "Show Arrows", "type": "boolean", "default": true },
+    {
+      "type": "group",
+      "id": "style_fields",
+      "name": "style_fields",
+      "label": "Styles",
+      "tab": "STYLE",
+      "children": [
+        {
+          "id": "overlay_opacity", "name": "overlay_opacity", "label": "Overlay Opacity",
+          "type": "number", "default": 50
+        },
+        {
+          "id": "min_height", "name": "min_height", "label": "Min Height",
+          "type": "choice",
+          "choices": [["screen","Screen"],["large","Large"],["medium","Medium"]],
+          "default": "large"
+        },
+        {
+          "id": "text_alignment", "name": "text_alignment", "label": "Text Alignment",
+          "type": "choice",
+          "choices": [["left","Left"],["center","Center"],["right","Right"]],
+          "default": "center"
+        }
+      ]
+    }
+  ]

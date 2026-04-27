@@ -1,0 +1,38 @@
+[
+    { "id": "hubdb_table_id", "name": "hubdb_table_id", "label": "HubDB Table (clinic_services)", "type": "hubdbtable", "required": true },
+    { "id": "section_label", "name": "section_label", "label": "Section Label", "type": "text", "default": "What We Offer" },
+    { "id": "section_title", "name": "section_title", "label": "Section Title", "type": "text", "default": "Our Services" },
+    { "id": "section_subtitle", "name": "section_subtitle", "label": "Section Subtitle", "type": "text" },
+    { "id": "show_popular_only", "name": "show_popular_only", "label": "Show Popular Only", "type": "boolean", "default": true },
+    { "id": "show_price", "name": "show_price", "label": "Show Price", "type": "boolean", "default": false },
+    { "id": "cta_text", "name": "cta_text", "label": "CTA Text", "type": "text", "default": "View All Services →" },
+    { "id": "cta_url", "name": "cta_url", "label": "CTA URL", "type": "link" },
+    {
+      "type": "group",
+      "id": "style_fields",
+      "name": "style_fields",
+      "label": "Styles",
+      "tab": "STYLE",
+      "children": [
+        {
+          "id": "card_columns", "name": "card_columns", "label": "Columns (desktop)",
+          "type": "choice",
+          "choices": [["2","2"],["3","3"],["4","4"]],
+          "default": "3"
+        },
+        { "id": "card_background", "name": "card_background", "label": "Card Background", "type": "color", "default": { "color": "#ffffff" } },
+        {
+          "id": "card_radius", "name": "card_radius", "label": "Card Radius",
+          "type": "choice",
+          "choices": [["none","None"],["sm","Small"],["md","Medium"],["lg","Large"]],
+          "default": "md"
+        },
+        {
+          "id": "gap", "name": "gap", "label": "Gap",
+          "type": "choice",
+          "choices": [["small","Small"],["medium","Medium"],["large","Large"]],
+          "default": "medium"
+        }
+      ]
+    }
+  ]
