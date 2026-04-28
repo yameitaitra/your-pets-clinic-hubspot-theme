@@ -1,0 +1,96 @@
+[
+    {
+      "id": "badges",
+      "name": "badges",
+      "label": "Badges",
+      "type": "group",
+      "occurrence": { "min": 1, "max": 8, "default": 4 },
+      "children": [
+        {
+          "id": "icon",
+          "name": "icon",
+          "label": "Icon (emoji)",
+          "type": "text",
+          "default": "⭐"
+        },
+        {
+          "id": "value",
+          "name": "value",
+          "label": "Value",
+          "type": "text",
+          "default": "4.9★"
+        },
+        {
+            "id": "badge_label",
+            "name": "badge_label",
+            "label": "Label",
+            "type": "text",
+            "default": "Average Rating"
+        },
+        {
+          "id": "sublabel",
+          "name": "sublabel",
+          "label": "Sub Label",
+          "type": "text",
+          "default": "From 1,000+ reviews"
+        }
+      ],
+      "default": [
+        {
+          "icon": "⭐",
+          "value": "4.9★",
+          "badge_label": "Average Rating",
+          "sublabel": "From 1,000+ reviews"
+        },
+        {
+          "icon": "🐾",
+          "value": "8,000+",
+          "badge_label": "Patients Treated",
+          "sublabel": "Trusted since 2015"
+        },
+        {
+          "icon": "✅",
+          "value": "Board Certified",
+          "badge_label": "Vets",
+          "sublabel": "AVMA & AAHA accredited"
+        },
+        {
+          "icon": "🕐",
+          "value": "24/7",
+          "badge_label": "Emergency Line",
+          "sublabel": "Always here when needed"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "id": "style_fields",
+      "name": "style_fields",
+      "label": "Styles",
+      "tab": "STYLE",
+      "children": [
+        {
+          "id": "background_color",
+          "name": "background_color",
+          "label": "Background Color",
+          "type": "color",
+          "default": { "color": "#ffffff" }
+        },
+        {
+          "id": "value_color",
+          "name": "value_color",
+          "label": "Value Color",
+          "type": "color",
+          "default": { "color": "#0d4f4f" }
+        },
+        {
+          "id": "columns",
+          "name": "columns",
+          "label": "Columns",
+          "type": "choice",
+          "choices": [["2","2"],["3","3"],["4","4"]],
+          "default": "4"
+        }
+      ]
+    }
+  ]

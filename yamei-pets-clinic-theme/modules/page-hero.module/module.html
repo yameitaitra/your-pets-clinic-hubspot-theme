@@ -1,0 +1,20 @@
+<section class="page-hero" style="background-color: {{ module.background_color.color }}">
+    <div class="page-hero__inner">
+      <nav class="page-hero__breadcrumb">
+        <a href="{{ module.breadcrumb_parent_url.url.href }}" class="page-hero__breadcrumb-link">
+          {{ module.breadcrumb_parent_label }}
+        </a>
+        <span class="page-hero__breadcrumb-sep">›</span>
+        <span class="page-hero__breadcrumb-current">{{ module.breadcrumb_current }}</span>
+      </nav>
+      {% if module.badge_text %}
+      <div class="page-hero__badge">{{ module.badge_text }}</div>
+      {% endif %}
+      {% if module.hero_title %}
+      <h1 class="page-hero__title">{{ module.hero_title }}</h1>
+      {% endif %}
+      {% if module.hero_subtitle %}
+      <div class="page-hero__subtitle">{{ module.hero_subtitle }}</div>
+      {% endif %}
+    </div>
+  </section>

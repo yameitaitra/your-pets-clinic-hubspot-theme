@@ -1,0 +1,55 @@
+{% set query_limit = module.limit %}
+{% if query_limit > 0 %}
+  {% set rows = hubdb_table_rows(module.hubdb_table_id, 'orderBy=id&limit=' ~ query_limit) %}
+{% else %}
+  {% set rows = hubdb_table_rows(module.hubdb_table_id, 'orderBy=id') %}
+{% endif %}
+
+<section class="doctor-grid" style="background-color: {{ module.style_fields.background_color.color }}">
+  <div class="doctor-grid__inner">
+
+    <div class="doctor-grid__header">
+      {% if module.section_label %}
+      <p class="doctor-grid__label">{{ module.section_label }}</p>
+      {% endif %}
+      {% if module.section_title %}
+      <h2 class="doctor-grid__title">{{ module.section_title }}</h2>
+      {% endif %}
+      {% if module.section_subtitle %}
+      <p class="doctor-grid__subtitle">{{ module.section_subtitle }}</p>
+      {% endif %}
+    </div>
+
+    <div class="doctor-grid__list layout--{{ module.style_fields.layout }}">
+      {% for row in rows %}
+      <div class="doctor-card">
+        <div class="doctor-card__image-wrap">
+          {% if row.photo %}
+          <img src="{{ row.photo.url }}" alt="{{ row.name }}" class="doctor-card__image">
+          {% else %}
+          <div class="doctor-card__image-placeholder">🐾</div>
+          {% endif %}
+          <div class="doctor-card__overlay">
+            <p class="doctor-card__overlay-title">{{ row.title }}</p>
+            <p class="doctor-card__overlay-name">{{ row.name }}</p>
+          </div>
+        </div>
+        <div class="doctor-card__body">
+          {% if row.specialty %}
+          <span class="doctor-card__specialty">🐾 {{ row.specialty }}</span>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% if module.show_cta and module.cta_text %}
+    <div class="doctor-grid__footer">
+      <a href="{{ module.cta_url.url.href }}" class="doctor-grid__cta">
+        {{ module.cta_text }}
+      </a>
+    </div>
+    {% endif %}
+
+  </div>
+</section>
