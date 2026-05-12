@@ -1,0 +1,107 @@
+.why-choose-us {
+    padding: 80px 20px;
+    background: #fff;
+  }
+  .why-choose-us__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .why-choose-us__badge {
+    display: inline-block;
+    background: #f0fdf4;
+    border: 1px solid #a7f3d0;
+    color: #065f46;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  .why-choose-us__title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 16px;
+    line-height: 1.25;
+    max-width: 600px;
+  }
+  .why-choose-us__subtitle {
+    font-size: 1rem;
+    color: #6b7280;
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 600px;
+  }
+  .why-choose-us__features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .why-choose-us__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: #374151;
+    line-height: 1.5;
+  }
+  .why-choose-us__feature-icon {
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .why-choose-us__buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+  .why-choose-us__btn {
+    display: inline-block;
+    padding: 13px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .why-choose-us__btn--primary {
+    background: #0d4f4f;
+    color: #fff;
+  }
+  .why-choose-us__btn--primary:hover { background: #0a3d3d; }
+  .why-choose-us__btn--secondary {
+    background: transparent;
+    color: #1f2937;
+    border: 2px solid #d1d5db;
+  }
+  .why-choose-us__btn--secondary:hover {
+    border-color: #9ca3af;
+    background: #f9fafb;
+  }
+  .why-choose-us__stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .why-choose-us__stat {
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 28px;
+    text-align: center;
+  }
+  .why-choose-us__stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0d4f4f;
+    margin-bottom: 8px;
+  }
+  .why-choose-us__stat-label {
+    font-size: 0.85rem;
+    color: #6b7280;
+  }
+  @media (max-width: 768px) {
+    .why-choose-us__title { font-size: 1.7rem; }
+    .why-choose-us__stats { grid-template-columns: 1fr; }
+  }
