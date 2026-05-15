@@ -1,14 +1,152 @@
-.carousel-banner { position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.carousel-banner.min-height--screen { min-height: 100vh; }
-.carousel-banner.min-height--large { min-height: 600px; }
-.carousel-banner.min-height--medium { min-height: 400px; }
-.carousel-banner.text--left { text-align: left; }
-.carousel-banner.text--center { text-align: center; }
-.carousel-banner.text--right { text-align: right; }
-.carousel-banner__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.carousel-banner__overlay { position: absolute; inset: 0; background: #000; }
-.carousel-banner__content { position: relative; z-index: 2; color: #fff; padding: 2rem; max-width: 800px; }
-.carousel-banner__badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 6px 16px; border-radius: 20px; margin-bottom: 1rem; font-size: 14px; }
-.carousel-banner__headline { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; }
-.carousel-banner__subtext { font-size: 1.1rem; margin-bottom: 1.5rem; opacity: 0.9; }
-.carousel-banner__cta { display: inline-block; background: #fff; color: #000; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 600; }
+/* ===== Carousel Wrapper ===== */
+.carousel-banner-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 75vh;
+  min-height: 500px;
+  max-height: 800px;
+}
+.carousel-banner-wrapper.min-height--screen { height: 100vh; max-height: none; }
+.carousel-banner-wrapper.min-height--large { height: 75vh; min-height: 500px; }
+.carousel-banner-wrapper.min-height--medium { height: 50vh; min-height: 350px; }
+
+/* ===== Slides ===== */
+.carousel-banner__track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.carousel-banner__slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+.carousel-banner__slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.carousel-banner__slide.text--left { justify-content: flex-start; text-align: left; }
+.carousel-banner__slide.text--center { justify-content: center; text-align: center; }
+.carousel-banner__slide.text--right { justify-content: flex-end; text-align: right; }
+
+/* ===== Background Image ===== */
+.carousel-banner__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== Overlay ===== */
+.carousel-banner__overlay {
+  position: absolute;
+  inset: 0;
+  background: #000;
+}
+
+/* ===== Content ===== */
+.carousel-banner__content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 2rem;
+  max-width: 800px;
+}
+.carousel-banner__badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  font-size: 14px;
+}
+.carousel-banner__headline {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.carousel-banner__subtext {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+.carousel-banner__cta {
+  display: inline-block;
+  background: #fff;
+  color: #000;
+  padding: 12px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.carousel-banner__cta:hover {
+  background: #e0e0e0;
+}
+
+/* ===== Arrows ===== */
+.carousel-banner__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-banner__arrow:hover { background: rgba(255,255,255,0.5); }
+.carousel-banner__arrow--prev { left: 20px; }
+.carousel-banner__arrow--next { right: 20px; }
+
+/* ===== Dots ===== */
+.carousel-banner__dots {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+}
+.carousel-banner__dot {
+  width: 32px;
+  height: 4px;
+  border-radius: 2px;
+  border: none;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: background 0.2s, width 0.2s;
+  padding: 0;
+}
+.carousel-banner__dot.is-active {
+  background: #fff;
+  width: 48px;
+}
+
+/* ===== Counter ===== */
+.carousel-banner__counter {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  z-index: 10;
+  color: #fff;
+  font-size: 14px;
+  opacity: 0.7;
+}

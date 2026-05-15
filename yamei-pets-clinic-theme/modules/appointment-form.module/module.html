@@ -1,29 +1,41 @@
 <section class="appt-form">
-    <div class="appt-form__inner">
-      <div class="appt-form__text">
-        {% if module.section_title %}<h2 class="appt-form__title">{{ module.section_title }}</h2>{% endif %}
-        {% if module.section_subtitle %}<p class="appt-form__subtitle">{{ module.section_subtitle }}</p>{% endif %}
-        {% if module.show_clinic_info %}
-        <div class="appt-form__clinic-info">
-          <p>📍 123 Vet Street, Taipei</p>
-          <p>📞 (02) 1234-5678</p>
-          <p>🕐 Mon–Sun 9:00 AM – 6:00 PM</p>
-        </div>
-        {% endif %}
-        {% if module.show_emergency_card %}
-        <div class="appt-form__emergency">
-          <strong>🚨 Emergency?</strong>
-          <p>Call us immediately at (02) 1234-5678</p>
-        </div>
-        {% endif %}
+  <div class="appt-form__inner">
+    <div class="appt-form__text">
+      {% if module.section_title %}<h2 class="appt-form__title">{{ module.section_title }}</h2>{% endif %}
+      {% if module.section_subtitle %}<p class="appt-form__subtitle">{{ module.section_subtitle }}</p>{% endif %}
+      {% if module.show_clinic_info %}
+      <div class="appt-form__clinic-info">
+        <p>📍 123 Vet Street, Taipei</p>
+        <p>📞 (02) 1234-5678</p>
+        <p>🕐 Mon–Sun 9:00 AM – 6:00 PM</p>
       </div>
-      <div class="appt-form__form-wrap">
-        {% form "appointment_form"
-          form_id="{{ module.hubspot_form_id }}",
-          portal_id="{{ module.portal_id }}",
-          response_redirect="",
-          response_message="{{ module.success_message }}"
-        %}
+      {% endif %}
+      {% if module.show_emergency_card %}
+      <div class="appt-form__emergency">
+        <strong>🚨 Emergency?</strong>
+        <p>Call us immediately at (02) 1234-5678</p>
       </div>
+      {% endif %}
     </div>
-  </section>
+
+    <div class="appt-form__form-wrap">
+      {% if module.hubspot_form_id and module.portal_id %}
+        <div id="appt-hbspt-form"></div>
+        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            region: "na1",
+            portalId: "{{ module.portal_id }}",
+            formId: "{{ module.hubspot_form_id }}",
+            target: "#appt-hbspt-form",
+            {% if module.success_message %}
+            inlineMessage: "{{ module.success_message }}",
+            {% endif %}
+          });
+        </script>
+      {% else %}
+        <p style="color:#999; padding: 20px;">⚠️ Please enter a HubSpot Form ID and Portal ID in the module settings.</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
