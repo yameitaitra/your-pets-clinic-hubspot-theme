@@ -1,0 +1,30 @@
+/* ===== Button Module ===== */
+.button-wrapper {
+  display: flex;
+}
+
+.button {
+  display: inline-block;
+  padding: 14px 32px;
+  background-color: #1a6b4a;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  line-height: 1.4;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #155a3d;
+  transform: translateY(-1px);
+}
+
+.button:active {
+  background-color: #0f4a31;
+  transform: translateY(0);
+}

@@ -1,0 +1,57 @@
+[
+    {
+      "id": "hubdb_table_id",
+      "name": "hubdb_table_id",
+      "label": "HubDB Table (clinic_services)",
+      "type": "hubdbtable",
+      "required": true
+    },
+    {
+      "id": "section_badge",
+      "name": "section_badge",
+      "label": "Section Badge",
+      "type": "text",
+      "default": "🏥 AAHA Accredited Clinic"
+    },
+    {
+      "id": "section_title",
+      "name": "section_title",
+      "label": "Section Title",
+      "type": "text",
+      "default": "Our Clinic Services"
+    },
+    {
+      "id": "section_subtitle",
+      "name": "section_subtitle",
+      "label": "Section Subtitle",
+      "type": "text",
+      "default": "From routine wellness exams to advanced surgery — we provide a full spectrum of veterinary care tailored to every pet and every need."
+    },
+    {
+      "id": "items_per_page",
+      "name": "items_per_page",
+      "label": "Items Per Page",
+      "type": "number",
+      "default": 4
+    },
+    {
+      "id": "show_filters",
+      "name": "show_filters",
+      "label": "Show Category Filters",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "id": "book_cta_text",
+      "name": "book_cta_text",
+      "label": "Card CTA Text",
+      "type": "text",
+      "default": "Book This Service"
+    },
+    {
+      "id": "book_cta_url",
+      "name": "book_cta_url",
+      "label": "Card CTA URL",
+      "type": "link"
+    }
+  ]

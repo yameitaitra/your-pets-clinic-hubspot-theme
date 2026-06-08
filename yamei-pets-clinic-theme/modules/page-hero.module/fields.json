@@ -1,0 +1,49 @@
+[
+    {
+      "id": "breadcrumb_parent_label",
+      "name": "breadcrumb_parent_label",
+      "label": "Breadcrumb Parent Label",
+      "type": "text",
+      "default": "Home"
+    },
+    {
+      "id": "breadcrumb_parent_url",
+      "name": "breadcrumb_parent_url",
+      "label": "Breadcrumb Parent URL",
+      "type": "link"
+    },
+    {
+      "id": "breadcrumb_current",
+      "name": "breadcrumb_current",
+      "label": "Breadcrumb Current Page",
+      "type": "text",
+      "default": "Services"
+    },
+    {
+      "id": "badge_text",
+      "name": "badge_text",
+      "label": "Badge Text",
+      "type": "text",
+      "default": "🏥 AAHA Accredited Clinic"
+    },
+    {
+      "id": "hero_title",
+      "name": "hero_title",
+      "label": "Hero Title",
+      "type": "text",
+      "default": "Our Clinic Services"
+    },
+    {
+      "id": "hero_subtitle",
+      "name": "hero_subtitle",
+      "label": "Hero Subtitle",
+      "type": "richtext"
+    },
+    {
+      "id": "background_color",
+      "name": "background_color",
+      "label": "Background Color",
+      "type": "color",
+      "default": { "color": "#0d4f4f" }
+    }
+  ]

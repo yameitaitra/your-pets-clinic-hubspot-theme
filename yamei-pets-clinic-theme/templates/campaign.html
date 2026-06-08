@@ -1,0 +1,23 @@
+<!--
+  templateType: page
+  label: "Campaign Page"
+  isAvailableForNewContent: true
+-->
+{% extends "./base.html" %}
+
+{% block main %}
+  {% dnd_area "campaign_hero"
+    label="Campaign Hero"
+  %}
+  {% end_dnd_area %}
+
+  {% dnd_area "campaign_content"
+    label="Campaign Content"
+  %}
+  {% end_dnd_area %}
+
+  {% dnd_area "campaign_cta"
+    label="Campaign CTA"
+  %}
+  {% end_dnd_area %}
+{% endblock %}

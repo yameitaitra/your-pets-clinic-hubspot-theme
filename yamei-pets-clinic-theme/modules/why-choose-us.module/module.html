@@ -1,0 +1,50 @@
+<section class="why-choose-us">
+    <div class="why-choose-us__inner">
+  
+      <div class="why-choose-us__content">
+        {% if module.badge_text %}
+        <div class="why-choose-us__badge">✨ {{ module.badge_text }}</div>
+        {% endif %}
+        {% if module.title %}
+        <h2 class="why-choose-us__title">{{ module.title }}</h2>
+        {% endif %}
+        {% if module.subtitle %}
+        <p class="why-choose-us__subtitle">{{ module.subtitle }}</p>
+        {% endif %}
+  
+        <ul class="why-choose-us__features">
+          {% for item in module.features %}
+          <li class="why-choose-us__feature">
+            <span class="why-choose-us__feature-icon">✅</span>
+            <span>{{ item.feature_text }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+  
+        <div class="why-choose-us__buttons">
+          {% if module.primary_cta_text %}
+          <a href="{{ module.primary_cta_url.url.href }}" class="why-choose-us__btn why-choose-us__btn--primary">
+            {{ module.primary_cta_text }} →
+          </a>
+          {% endif %}
+          {% if module.secondary_cta_text %}
+          <a href="{{ module.secondary_cta_url.url.href }}" class="why-choose-us__btn why-choose-us__btn--secondary">
+            {{ module.secondary_cta_text }}
+          </a>
+          {% endif %}
+        </div>
+      </div>
+  
+      {% if module.stats %}
+      <div class="why-choose-us__stats">
+        {% for stat in module.stats %}
+        <div class="why-choose-us__stat">
+          <div class="why-choose-us__stat-value">{{ stat.stat_value }}</div>
+          <div class="why-choose-us__stat-label">{{ stat.stat_label }}</div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+  
+    </div>
+  </section>

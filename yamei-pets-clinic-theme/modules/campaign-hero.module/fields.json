@@ -1,0 +1,98 @@
+[
+  {
+    "id": "background_image",
+    "name": "background_image",
+    "label": "Background Image",
+    "type": "image",
+    "default": {
+      "src": "https://placehold.co/1920x1080/0d4f4f/ffffff?text=Campaign+Hero",
+      "alt": "Campaign hero background",
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  {
+    "id": "overlay_opacity",
+    "name": "overlay_opacity",
+    "label": "Overlay Opacity (%)",
+    "type": "number",
+    "default": 75
+  },
+  {
+    "id": "badge_text",
+    "name": "badge_text",
+    "label": "Badge Text",
+    "type": "text",
+    "default": "New Patient Special — First Visit Wellness Check Included"
+  },
+  {
+    "id": "headline",
+    "name": "headline",
+    "label": "Headline",
+    "type": "richtext",
+    "default": "<h1>Your Pet Deserves Expert Care — Book Today</h1>"
+  },
+  {
+    "id": "subtext",
+    "name": "subtext",
+    "label": "Subtext",
+    "type": "text",
+    "default": "Trusted by 500+ pet families. 4 specialist vets. Compassionate care since 2015."
+  },
+  {
+    "id": "trust_badge_1",
+    "name": "trust_badge_1",
+    "label": "Trust Badge 1",
+    "type": "text",
+    "default": "⭐ 4.9 Rating"
+  },
+  {
+    "id": "trust_badge_2",
+    "name": "trust_badge_2",
+    "label": "Trust Badge 2",
+    "type": "text",
+    "default": "🏥 AAHA Accredited"
+  },
+  {
+    "id": "trust_badge_3",
+    "name": "trust_badge_3",
+    "label": "Trust Badge 3",
+    "type": "text",
+    "default": "🐾 500+ Families"
+  },
+  {
+    "id": "primary_cta_text",
+    "name": "primary_cta_text",
+    "label": "Primary CTA Text",
+    "type": "text",
+    "default": "Book My Appointment"
+  },
+  {
+    "id": "primary_cta_url",
+    "name": "primary_cta_url",
+    "label": "Primary CTA URL",
+    "type": "link",
+    "default": {
+      "url": {
+        "href": "/contact",
+        "type": "EXTERNAL"
+      },
+      "open_in_new_tab": false,
+      "no_follow": false
+    }
+  },
+  {
+    "id": "secondary_cta_text",
+    "name": "secondary_cta_text",
+    "label": "Secondary CTA Text",
+    "type": "text",
+    "default": "Call Us Now"
+  },
+  {
+    "id": "secondary_cta_phone",
+    "name": "secondary_cta_phone",
+    "label": "Secondary CTA Phone",
+    "type": "text",
+    "default": "+886612345678"
+  }
+]

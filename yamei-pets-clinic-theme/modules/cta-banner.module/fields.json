@@ -1,0 +1,73 @@
+[
+    {
+      "id": "badge_text",
+      "name": "badge_text",
+      "label": "Badge Text",
+      "type": "text",
+      "default": "Ready to Book?"
+    },
+    {
+      "id": "title",
+      "name": "title",
+      "label": "Title",
+      "type": "text",
+      "default": "Your Pet Deserves the Best Care"
+    },
+    {
+      "id": "subtitle",
+      "name": "subtitle",
+      "label": "Subtitle",
+      "type": "text",
+      "default": "Book an appointment online or call us directly. Same-day slots and emergency care available."
+    },
+    {
+      "id": "primary_cta_text",
+      "name": "primary_cta_text",
+      "label": "Primary Button Text",
+      "type": "text",
+      "default": "Book Online"
+    },
+    {
+      "id": "primary_cta_url",
+      "name": "primary_cta_url",
+      "label": "Primary Button URL",
+      "type": "link"
+    },
+    {
+      "id": "secondary_cta_text",
+      "name": "secondary_cta_text",
+      "label": "Secondary Button Text",
+      "type": "text",
+      "default": ""
+    },
+    {
+      "id": "secondary_cta_url",
+      "name": "secondary_cta_url",
+      "label": "Secondary Button URL",
+      "type": "link"
+    },
+    {
+      "type": "group",
+      "id": "style_fields",
+      "name": "style_fields",
+      "label": "Styles",
+      "tab": "STYLE",
+      "children": [
+        {
+          "id": "background_color",
+          "name": "background_color",
+          "label": "Background Color",
+          "type": "color",
+          "default": { "color": "#0d4f4f" }
+        },
+        {
+          "id": "text_alignment",
+          "name": "text_alignment",
+          "label": "Text Alignment",
+          "type": "choice",
+          "choices": [["left","Left"],["center","Center"]],
+          "default": "center"
+        }
+      ]
+    }
+  ]

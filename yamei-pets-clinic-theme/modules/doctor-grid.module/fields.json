@@ -1,0 +1,81 @@
+[
+    {
+      "id": "hubdb_table_id",
+      "name": "hubdb_table_id",
+      "label": "HubDB Table (clinic_doctors)",
+      "type": "hubdbtable",
+      "required": true
+    },
+    {
+      "id": "section_label",
+      "name": "section_label",
+      "label": "Section Label",
+      "type": "text",
+      "default": "Meet the Team"
+    },
+    {
+      "id": "section_title",
+      "name": "section_title",
+      "label": "Section Title",
+      "type": "text",
+      "default": "Our Expert Veterinarians"
+    },
+    {
+      "id": "section_subtitle",
+      "name": "section_subtitle",
+      "label": "Section Subtitle",
+      "type": "text",
+      "default": "Board-certified doctors with deep specializations, united by a shared commitment to the health and happiness of every patient."
+    },
+    {
+      "id": "limit",
+      "name": "limit",
+      "label": "Max Doctors to Show (0 = all)",
+      "type": "number",
+      "default": 4
+    },
+    {
+      "id": "show_cta",
+      "name": "show_cta",
+      "label": "Show CTA Button",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "id": "cta_text",
+      "name": "cta_text",
+      "label": "CTA Text",
+      "type": "text",
+      "default": "View All Doctors"
+    },
+    {
+      "id": "cta_url",
+      "name": "cta_url",
+      "label": "CTA URL",
+      "type": "link"
+    },
+    {
+      "type": "group",
+      "id": "style_fields",
+      "name": "style_fields",
+      "label": "Styles",
+      "tab": "STYLE",
+      "children": [
+        {
+          "id": "layout",
+          "name": "layout",
+          "label": "Layout",
+          "type": "choice",
+          "choices": [["grid","Grid (2 columns)"],["list","List (full width)"]],
+          "default": "grid"
+        },
+        {
+          "id": "background_color",
+          "name": "background_color",
+          "label": "Background Color",
+          "type": "color",
+          "default": { "color": "#ffffff" }
+        }
+      ]
+    }
+  ]

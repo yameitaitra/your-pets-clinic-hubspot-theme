@@ -1,0 +1,93 @@
+<div class="carousel-banner-wrapper min-height--{{ module.style_fields.min_height }}">
+  <!-- Slides -->
+  <div class="carousel-banner__track">
+    {% for slide in module.slides %}
+    <section class="carousel-banner__slide{% if loop.first %} is-active{% endif %} text--{{ module.style_fields.text_alignment }}">
+      {% if slide.slide_image.src %}
+        <img src="{{ slide.slide_image.src }}" alt="{{ slide.slide_image.alt }}" class="carousel-banner__bg">
+      {% endif %}
+      <div class="carousel-banner__overlay" style="opacity: {{ module.style_fields.overlay_opacity / 100 }}"></div>
+      <div class="carousel-banner__content">
+        {% if slide.slide_badge %}<span class="carousel-banner__badge">{{ slide.slide_badge }}</span>{% endif %}
+        {% if slide.slide_headline %}<div class="carousel-banner__headline">{{ slide.slide_headline }}</div>{% endif %}
+        {% if slide.slide_subtext %}<p class="carousel-banner__subtext">{{ slide.slide_subtext }}</p>{% endif %}
+        {% if slide.slide_cta_text %}
+          <a href="{{ slide.slide_cta_url.url.href }}" class="carousel-banner__cta">{{ slide.slide_cta_text }}</a>
+        {% endif %}
+      </div>
+    </section>
+    {% endfor %}
+  </div>
+
+  <!-- Arrows -->
+  {% if module.show_arrows %}
+  <button class="carousel-banner__arrow carousel-banner__arrow--prev" aria-label="Previous slide">&#10094;</button>
+  <button class="carousel-banner__arrow carousel-banner__arrow--next" aria-label="Next slide">&#10095;</button>
+  {% endif %}
+
+  <!-- Dots -->
+  {% if module.show_dots %}
+  <div class="carousel-banner__dots">
+    {% for slide in module.slides %}
+      <button class="carousel-banner__dot{% if loop.first %} is-active{% endif %}" data-index="{{ loop.index0 }}" aria-label="Go to slide {{ loop.index }}"></button>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <!-- Slide Counter -->
+  <div class="carousel-banner__counter">
+    <span class="carousel-banner__current">1</span> / <span class="carousel-banner__total">{{ module.slides|length }}</span>
+  </div>
+</div>
+
+<script>
+(function() {
+  var wrapper = document.querySelector('.carousel-banner-wrapper');
+  if (!wrapper) return;
+
+  var slides = wrapper.querySelectorAll('.carousel-banner__slide');
+  var dots = wrapper.querySelectorAll('.carousel-banner__dot');
+  var prevBtn = wrapper.querySelector('.carousel-banner__arrow--prev');
+  var nextBtn = wrapper.querySelector('.carousel-banner__arrow--next');
+  var counter = wrapper.querySelector('.carousel-banner__current');
+  var currentIndex = 0;
+  var totalSlides = slides.length;
+  var autoplay = {{ module.autoplay|lower }};
+  var autoplaySpeed = {{ module.autoplay_speed }};
+  var autoplayTimer;
+
+  function goToSlide(index) {
+    slides[currentIndex].classList.remove('is-active');
+    if (dots.length) dots[currentIndex].classList.remove('is-active');
+
+    currentIndex = (index + totalSlides) % totalSlides;
+
+    slides[currentIndex].classList.add('is-active');
+    if (dots.length) dots[currentIndex].classList.add('is-active');
+    if (counter) counter.textContent = currentIndex + 1;
+  }
+
+  function nextSlide() { goToSlide(currentIndex + 1); }
+  function prevSlide() { goToSlide(currentIndex - 1); }
+
+  function startAutoplay() {
+    if (autoplay && totalSlides > 1) {
+      autoplayTimer = setInterval(nextSlide, autoplaySpeed);
+    }
+  }
+  function stopAutoplay() { clearInterval(autoplayTimer); }
+
+  if (prevBtn) prevBtn.addEventListener('click', function() { stopAutoplay(); prevSlide(); startAutoplay(); });
+  if (nextBtn) nextBtn.addEventListener('click', function() { stopAutoplay(); nextSlide(); startAutoplay(); });
+
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      stopAutoplay();
+      goToSlide(parseInt(this.getAttribute('data-index')));
+      startAutoplay();
+    });
+  });
+
+  startAutoplay();
+})();
+</script>

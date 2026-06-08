@@ -1,0 +1,138 @@
+[
+    {
+      "id": "logo_text",
+      "name": "logo_text",
+      "label": "Logo Text",
+      "type": "text",
+      "default": "PawClinic"
+    },
+    {
+      "id": "logo_subtext",
+      "name": "logo_subtext",
+      "label": "Logo Subtext",
+      "type": "text",
+      "default": "PET VETERINARY CLINIC"
+    },
+    {
+      "id": "tagline",
+      "name": "tagline",
+      "label": "Tagline",
+      "type": "text",
+      "default": "Compassionate, expert veterinary care for every pet. Serving our community since 2015."
+    },
+    {
+      "id": "social_links",
+      "name": "social_links",
+      "label": "Social Links",
+      "type": "group",
+      "occurrence": { "min": 0, "max": 6, "default": 3 },
+      "children": [
+        {
+          "id": "social_icon",
+          "name": "social_icon",
+          "label": "Icon (emoji)",
+          "type": "text",
+          "default": "📷"
+        },
+        {
+          "id": "social_url",
+          "name": "social_url",
+          "label": "URL",
+          "type": "link"
+        }
+      ],
+      "default": [
+        { "social_icon": "📷" },
+        { "social_icon": "👍" },
+        { "social_icon": "🐦" }
+      ]
+    },
+    {
+      "id": "nav_links",
+      "name": "nav_links",
+      "label": "Navigation Links",
+      "type": "group",
+      "occurrence": { "min": 0, "max": 8, "default": 4 },
+      "children": [
+        {
+          "id": "nav_text",
+          "name": "nav_text",
+          "label": "Link Text",
+          "type": "text"
+        },
+        {
+          "id": "nav_url",
+          "name": "nav_url",
+          "label": "Link URL",
+          "type": "link"
+        }
+      ],
+      "default": [
+        { "nav_text": "Home" },
+        { "nav_text": "Services" },
+        { "nav_text": "Our Doctors" },
+        { "nav_text": "Book Appointment" }
+      ]
+    },
+    {
+      "id": "address",
+      "name": "address",
+      "label": "Address",
+      "type": "text",
+      "default": "456 Paw Avenue, Suite 1 Pet Town, CA 90210"
+    },
+    {
+      "id": "phone",
+      "name": "phone",
+      "label": "Phone",
+      "type": "text",
+      "default": "(555) 123-4567"
+    },
+    {
+      "id": "email",
+      "name": "email",
+      "label": "Email",
+      "type": "text",
+      "default": "hello@pawclinic.com"
+    },
+    {
+      "id": "hours",
+      "name": "hours",
+      "label": "Clinic Hours",
+      "type": "group",
+      "occurrence": { "min": 0, "max": 7, "default": 3 },
+      "children": [
+        {
+          "id": "hours_day",
+          "name": "hours_day",
+          "label": "Day",
+          "type": "text"
+        },
+        {
+          "id": "hours_time",
+          "name": "hours_time",
+          "label": "Hours",
+          "type": "text"
+        }
+      ],
+      "default": [
+        { "hours_day": "Monday – Friday", "hours_time": "8:00 AM – 7:00 PM" },
+        { "hours_day": "Saturday", "hours_time": "9:00 AM – 5:00 PM" },
+        { "hours_day": "Sunday", "hours_time": "Emergency Only" }
+      ]
+    },
+    {
+      "id": "emergency_line",
+      "name": "emergency_line",
+      "label": "Emergency Line",
+      "type": "text",
+      "default": "(555) 999-0000"
+    },
+    {
+      "id": "copyright",
+      "name": "copyright",
+      "label": "Copyright Text",
+      "type": "text",
+      "default": "© 2026 PawClinic Veterinary Services. All rights reserved."
+    }
+  ]

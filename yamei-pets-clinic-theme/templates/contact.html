@@ -1,0 +1,23 @@
+<!--
+  templateType: page
+  label: "Contact Page"
+  isAvailableForNewContent: true
+-->
+{% extends "./base.html" %}
+
+{% block main %}
+  {% dnd_area "contact_hero"
+    label="Contact Hero"
+  %}
+  {% end_dnd_area %}
+
+  {% dnd_area "contact_form"
+    label="Appointment Form"
+  %}
+  {% end_dnd_area %}
+
+  {% dnd_area "contact_info"
+    label="Contact Info"
+  %}
+  {% end_dnd_area %}
+{% endblock %}

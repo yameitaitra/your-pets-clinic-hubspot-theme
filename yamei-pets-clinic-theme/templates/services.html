@@ -1,0 +1,23 @@
+<!--
+  templateType: page
+  label: "Services Page"
+  isAvailableForNewContent: true
+-->
+{% extends "./base.html" %}
+
+{% block main %}
+  {% dnd_area "services_hero"
+    label="Services Hero"
+  %}
+  {% end_dnd_area %}
+
+  {% dnd_area "services_listing"
+    label="Services Listing"
+  %}
+  {% end_dnd_area %}
+
+  {% dnd_area "services_cta"
+    label="Services CTA"
+  %}
+  {% end_dnd_area %}
+{% endblock %}

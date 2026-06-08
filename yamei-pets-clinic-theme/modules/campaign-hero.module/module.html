@@ -1,0 +1,39 @@
+<section class="campaign-hero">
+  {% if module.background_image.src %}
+    <img src="{{ module.background_image.src }}" alt="{{ module.background_image.alt }}" class="campaign-hero__bg">
+  {% endif %}
+  <div class="campaign-hero__overlay" style="opacity: {{ module.overlay_opacity / 100 }}"></div>
+
+  <div class="campaign-hero__inner">
+    {% if module.badge_text %}
+      <div class="campaign-hero__badge">🎉 {{ module.badge_text }}</div>
+    {% endif %}
+
+    {% if module.headline %}
+      <div class="campaign-hero__headline">{{ module.headline }}</div>
+    {% endif %}
+
+    {% if module.subtext %}
+      <p class="campaign-hero__subtext">{{ module.subtext }}</p>
+    {% endif %}
+
+    <div class="campaign-hero__trust">
+      {% if module.trust_badge_1 %}<span class="campaign-hero__trust-item">{{ module.trust_badge_1 }}</span>{% endif %}
+      {% if module.trust_badge_2 %}<span class="campaign-hero__trust-item">{{ module.trust_badge_2 }}</span>{% endif %}
+      {% if module.trust_badge_3 %}<span class="campaign-hero__trust-item">{{ module.trust_badge_3 }}</span>{% endif %}
+    </div>
+
+    <div class="campaign-hero__ctas">
+      {% if module.primary_cta_text %}
+        <a href="{{ module.primary_cta_url.url.href|default('/contact') }}" class="campaign-hero__btn campaign-hero__btn--primary">
+          {{ module.primary_cta_text }}
+        </a>
+      {% endif %}
+      {% if module.secondary_cta_text and module.secondary_cta_phone %}
+        <a href="tel:{{ module.secondary_cta_phone }}" class="campaign-hero__btn campaign-hero__btn--secondary">
+          📞 {{ module.secondary_cta_text }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>

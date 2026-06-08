@@ -1,0 +1,49 @@
+<!--
+  templateType: page
+  label: "Yamei Base Template"
+  isAvailableForNewContent: false
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ content.html_title }} | Yamei Pets Clinic</title>
+  <meta name="description" content="{{ content.meta_description }}">
+
+  {% block meta %}{% endblock %}
+
+  {{ standard_header_includes }}
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; color: #222; }
+    .yp-main { min-height: 60vh; }
+  </style>
+
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+  {# ===== GLOBAL HEADER PARTIAL ===== #}
+  {% global_partial path="yamei-pets-clinic-theme/partials/global-header.html" %}
+
+  {# ===== MAIN CONTENT AREA ===== #}
+  <main class="yp-main">
+    {% block main %}
+      {% dnd_area "main_content"
+        label="Main Content"
+      %}
+      {% end_dnd_area %}
+    {% endblock %}
+  </main>
+
+  {# ===== GLOBAL FOOTER PARTIAL ===== #}
+  {% global_partial path="yamei-pets-clinic-theme/partials/global-footer.html" %}
+
+  {{ standard_footer_includes }}
+
+  {% block extra_js %}{% endblock %}
+
+</body>
+</html>

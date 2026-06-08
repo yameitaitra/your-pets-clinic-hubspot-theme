@@ -1,0 +1,69 @@
+.cta-banner {
+    padding: 80px 20px;
+    background-color: #0d4f4f;
+  }
+  .cta-banner__inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .cta-banner.text--center .cta-banner__inner { text-align: center; }
+  .cta-banner.text--left .cta-banner__inner { text-align: left; }
+  
+  .cta-banner__badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  .cta-banner__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 16px;
+    line-height: 1.2;
+  }
+  .cta-banner__subtitle {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  .cta-banner__buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .cta-banner.text--center .cta-banner__buttons { justify-content: center; }
+  .cta-banner__btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .cta-banner__btn--primary {
+    background: #fff;
+    color: #0d4f4f;
+  }
+  .cta-banner__btn--primary:hover {
+    background: #f0fdf4;
+  }
+  .cta-banner__btn--secondary {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.5);
+  }
+  .cta-banner__btn--secondary:hover {
+    border-color: #fff;
+    background: rgba(255,255,255,0.1);
+  }
+  @media (max-width: 768px) {
+    .cta-banner__title { font-size: 1.8rem; }
+    .cta-banner__buttons { justify-content: center; }
+  }

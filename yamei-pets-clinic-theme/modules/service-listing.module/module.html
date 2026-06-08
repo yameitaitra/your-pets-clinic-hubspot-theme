@@ -1,0 +1,93 @@
+{% set all_rows = hubdb_table_rows(module.hubdb_table_id, 'orderBy=name') %}
+
+<section class="service-listing">
+  <div class="service-listing__inner">
+
+    {% if module.section_badge %}
+    <div class="service-listing__badge">{{ module.section_badge }}</div>
+    {% endif %}
+    {% if module.section_title %}
+    <h2 class="service-listing__title">{{ module.section_title }}</h2>
+    {% endif %}
+    {% if module.section_subtitle %}
+    <p class="service-listing__subtitle">{{ module.section_subtitle }}</p>
+    {% endif %}
+
+    {% if module.show_filters %}
+    <div class="service-listing__filters">
+      <button class="service-listing__filter active" data-filter="all">
+        All <span class="service-listing__filter-count">{{ all_rows|length }}</span>
+      </button>
+      {% set categories = [] %}
+      {% for row in all_rows %}
+        {% if row.category not in categories %}
+          {% set categories = categories + [row.category] %}
+        {% endif %}
+      {% endfor %}
+      {% for cat in categories %}
+      {% set cat_count = all_rows | selectattr('category', 'equalto', cat) | list | length %}
+      <button class="service-listing__filter" data-filter="{{ cat }}">
+        {{ cat }} <span class="service-listing__filter-count">{{ cat_count }}</span>
+      </button>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <p class="service-listing__count">
+      Showing {{ [module.items_per_page, all_rows|length] | min }} of {{ all_rows|length }} services · Page 1 of {{ ((all_rows|length) / module.items_per_page)|round(0, 'ceil')|int }}
+    </p>
+
+    <div class="service-listing__list" id="service-list">
+      {% for row in all_rows %}
+      <div class="service-listing__item" data-category="{{ row.category }}">
+        <div class="service-listing__item-image">
+          {% if row.image %}
+          <img src="{{ row.image.url }}" alt="{{ row.name }}">
+          {% else %}
+          <div class="service-listing__item-placeholder">🐾</div>
+          {% endif %}
+          {% if row.popular %}
+          <span class="service-listing__item-badge service-listing__item-badge--popular">Popular</span>
+          {% endif %}
+          <span class="service-listing__item-badge service-listing__item-badge--cat">{{ row.category }}</span>
+        </div>
+        <div class="service-listing__item-content">
+          <div class="service-listing__item-top">
+            <h3 class="service-listing__item-name">{{ row.name }}</h3>
+            {% if row.popular %}
+            <span class="service-listing__item-popular">Popular</span>
+            {% endif %}
+          </div>
+          <p class="service-listing__item-desc">{{ row.description }}</p>
+          <div class="service-listing__item-meta">
+            🕐 {{ row.duration }}
+          </div>
+          <a href="{{ module.book_cta_url.url.href }}" class="service-listing__item-cta">
+            {{ module.book_cta_text }} →
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('.service-listing__filter').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.service-listing__filter').forEach(function(b) {
+      b.classList.remove('active');
+    });
+    this.classList.add('active');
+    var filter = this.getAttribute('data-filter');
+    document.querySelectorAll('.service-listing__item').forEach(function(item) {
+      if (filter === 'all' || item.getAttribute('data-category') === filter) {
+        item.style.display = 'flex';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+});
+</script>

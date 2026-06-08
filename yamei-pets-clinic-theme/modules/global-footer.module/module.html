@@ -1,0 +1,63 @@
+<footer class="global-footer">
+    <div class="global-footer__main">
+      <div class="global-footer__brand">
+        <div class="global-footer__logo">
+          <span class="global-footer__logo-icon">🐾</span>
+          <div>
+            <div class="global-footer__logo-text">{{ module.logo_text }}</div>
+            <div class="global-footer__logo-sub">{{ module.logo_subtext }}</div>
+          </div>
+        </div>
+        {% if module.tagline %}
+        <p class="global-footer__tagline">{{ module.tagline }}</p>
+        {% endif %}
+        <div class="global-footer__social">
+          {% for link in module.social_links %}
+          <a href="{{ link.social_url.url.href }}" class="global-footer__social-link">
+            {{ link.social_icon }}
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+  
+      <div class="global-footer__nav">
+        <h4 class="global-footer__col-title">NAVIGATION</h4>
+        {% for item in module.nav_links %}
+        <a href="{{ item.nav_url.url.href }}" class="global-footer__nav-link">
+          {{ item.nav_text }}
+        </a>
+        {% endfor %}
+      </div>
+  
+      <div class="global-footer__contact">
+        <h4 class="global-footer__col-title">CONTACT</h4>
+        {% if module.address %}
+        <p class="global-footer__contact-item">📍 {{ module.address }}</p>
+        {% endif %}
+        {% if module.phone %}
+        <p class="global-footer__contact-item">📞 {{ module.phone }}</p>
+        {% endif %}
+        {% if module.email %}
+        <p class="global-footer__contact-item">✉️ {{ module.email }}</p>
+        {% endif %}
+      </div>
+  
+      <div class="global-footer__hours">
+        <h4 class="global-footer__col-title">CLINIC HOURS</h4>
+        {% for item in module.hours %}
+        <div class="global-footer__hours-row">
+          <span class="global-footer__hours-day">🕐 {{ item.hours_day }}</span>
+          <span class="global-footer__hours-time">{{ item.hours_time }}</span>
+        </div>
+        {% endfor %}
+        {% if module.emergency_line %}
+        <p class="global-footer__emergency">🔴 24/7 Emergency Line: {{ module.emergency_line }}</p>
+        {% endif %}
+      </div>
+    </div>
+  
+    <div class="global-footer__bottom">
+      <p class="global-footer__copyright">{{ module.copyright }}</p>
+      <p class="global-footer__built">Built with HubSpot CMS 🟢</p>
+    </div>
+  </footer>
