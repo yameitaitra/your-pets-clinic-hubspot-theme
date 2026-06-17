@@ -51,47 +51,47 @@
   </footer>
   
   <style>
-  .yp-footer {
-    background: #0f3d28;
-    color: #c8e6d8;
-    padding: 60px 0 0;
-  }
-  .yp-footer__inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px 48px;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 48px;
-  }
-  .yp-footer__logo {
-    font-size: 22px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 12px;
-  }
-  .yp-footer__brand p { font-size: 14px; line-height: 1.7; opacity: 0.8; }
-  .yp-footer__col h4 {
-    color: #fff;
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 16px;
-  }
-  .yp-footer__col ul { list-style: none; padding: 0; margin: 0; }
-  .yp-footer__col li { margin-bottom: 8px; font-size: 14px; opacity: 0.8; }
-  .yp-footer__col a {
-    color: #c8e6d8;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .yp-footer__col a:hover { color: #fff; }
-  .yp-footer__bottom {
-    border-top: 1px solid rgba(255,255,255,0.1);
-    text-align: center;
-    padding: 20px 24px;
-    font-size: 13px;
-    opacity: 0.6;
-  }
-  </style>
+    .yp-footer {
+      background: {{ theme.footer_bg_color.color }};
+      color: {{ theme.footer_text_color.color }};
+      padding: 60px 0 0;
+    }
+    .yp-footer__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px 48px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+    }
+    .yp-footer__logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .yp-footer__brand p { font-size: 14px; line-height: 1.7; opacity: 0.8; }
+    .yp-footer__col h4 {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 16px;
+    }
+    .yp-footer__col ul { list-style: none; padding: 0; margin: 0; }
+    .yp-footer__col li { margin-bottom: 8px; font-size: 14px; opacity: 0.8; }
+    .yp-footer__col a {
+      color: {{ theme.footer_text_color.color }};
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .yp-footer__col a:hover { color: {{ theme.secondary_color.color }}; }
+    .yp-footer__bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      padding: 20px 24px;
+      font-size: 13px;
+      opacity: 0.6;
+    }
+    </style>

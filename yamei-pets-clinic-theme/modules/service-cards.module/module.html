@@ -1,3 +1,23 @@
+<style>
+  .service-cards__title {
+    color: {{ theme.heading_color.color }};
+  }
+
+  .service-card__price {
+    color: {{ theme.primary_color.color }};
+  }
+
+  .service-cards__cta {
+    border-color: {{ theme.primary_color.color }};
+    color: {{ theme.primary_color.color }};
+    border-radius: {{ theme.button_border_radius }}px;
+  }
+
+  .service-cards__cta:hover {
+    background-color: {{ theme.primary_color.color }};
+    color: #fff;
+  }
+</style>
 {% set rows = hubdb_table_rows(module.hubdb_table_id, 'orderBy=name') %}
 <section class="service-cards">
   <div class="service-cards__header">
