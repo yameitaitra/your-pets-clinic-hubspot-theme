@@ -1,3 +1,27 @@
+<style>
+  .global-footer {
+    background-color: {{ theme.footer_bg_color.color }};
+    color: {{ theme.footer_text_color.color }};
+  }
+
+  .global-footer a {
+    color: {{ theme.footer_text_color.color }};
+    opacity: 0.85;
+  }
+
+  .global-footer a:hover {
+    color: {{ theme.secondary_color.color }};
+  }
+
+  .global-footer .footer-copyright {
+    color: {{ theme.footer_text_color.color }};
+    opacity: 0.6;
+    font-size: 14px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 20px;
+    margin-top: 40px;
+  }
+</style>
 <footer class="global-footer">
     <div class="global-footer__main">
       <div class="global-footer__brand">
@@ -41,7 +65,6 @@
         <p class="global-footer__contact-item">✉️ {{ module.email }}</p>
         {% endif %}
       </div>
-  
       <div class="global-footer__hours">
         <h4 class="global-footer__col-title">CLINIC HOURS</h4>
         {% for item in module.hours %}
@@ -57,7 +80,7 @@
     </div>
   
     <div class="global-footer__bottom">
-      <p class="global-footer__copyright">{{ module.copyright }}</p>
+      <p class="global-footer__copyright">{{ module.copyright_text  }}</p>
       <p class="global-footer__built">Built with HubSpot CMS 🟢</p>
     </div>
   </footer>

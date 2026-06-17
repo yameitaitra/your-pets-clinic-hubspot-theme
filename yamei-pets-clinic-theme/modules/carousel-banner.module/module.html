@@ -1,3 +1,13 @@
+<style>
+  .carousel-banner-wrapper .carousel-banner__cta {
+    background-color: {{ theme.primary_color.color }};
+    border-radius: {{ theme.button_border_radius }}px;
+  }
+
+  .carousel-banner-wrapper .carousel-banner__cta:hover {
+    background-color: {{ theme.secondary_color.color }};
+  }
+</style>
 <div class="carousel-banner-wrapper min-height--{{ module.style_fields.min_height }}">
   <!-- Slides -->
   <div class="carousel-banner__track">

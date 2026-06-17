@@ -1,5 +1,4 @@
 {# Module styles #}
-
 {% require_css %}
   <style>
     {% scope_css %}
@@ -16,12 +15,16 @@
 
       .button {
         {% if module.styles.background.color.color %}
-          background-color: rgba({{ module.styles.background.color.color|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
-        {% endif %}
+  background-color: rgba({{ module.styles.background.color.color|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+{% else %}
+  background-color: {{ theme.primary_color.color }};
+{% endif %}
         {{ module.styles.border.border.css }}
         {% if module.styles.corner.radius >= 0 %}
-          border-radius: {{ module.styles.corner.radius ~ "px" }};
-        {% endif %}
+  border-radius: {{ module.styles.corner.radius ~ "px" }};
+{% else %}
+  border-radius: {{ theme.button_border_radius }}px;
+{% endif %}
         {{ module.styles.text.font.css }}
         {{ module.styles.spacing.spacing.css }}
       }
@@ -29,8 +32,10 @@
       .button:hover,
       .button:focus {
         {% if module.styles.background.color.color %}
-          background-color: rgba({{ color_variant(module.styles.background.color.color, -80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
-        {% endif %}
+  background-color: rgba({{ color_variant(module.styles.background.color.color, -80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+{% else %}
+  background-color: {{ theme.secondary_color.color }};
+{% endif %}
       }
 
       .button:active {
