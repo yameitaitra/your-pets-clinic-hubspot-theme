@@ -1,20 +1,22 @@
+{# t(zh, en)：中文頁且 zh 有值 → 顯示 zh，否則退回 en #}
+{% macro t(zh, en) %}{% if html_lang == "zh-tw" and zh %}{{ zh }}{% else %}{{ en }}{% endif %}{% endmacro %}
 <section class="page-hero" style="background-color: {{ module.background_color.color }}">
     <div class="page-hero__inner">
       <nav class="page-hero__breadcrumb">
         <a href="{{ module.breadcrumb_parent_url.url.href }}" class="page-hero__breadcrumb-link">
-          {{ module.breadcrumb_parent_label }}
+          {{ t(module.breadcrumb_parent_label_zh, module.breadcrumb_parent_label) }}
         </a>
         <span class="page-hero__breadcrumb-sep">›</span>
-        <span class="page-hero__breadcrumb-current">{{ module.breadcrumb_current }}</span>
+        <span class="page-hero__breadcrumb-current">{{ t(module.breadcrumb_current_zh, module.breadcrumb_current) }}</span>
       </nav>
-      {% if module.badge_text %}
-      <div class="page-hero__badge">{{ module.badge_text }}</div>
+      {% if module.badge_text or module.badge_text_zh %}
+      <div class="page-hero__badge">{{ t(module.badge_text_zh, module.badge_text) }}</div>
       {% endif %}
-      {% if module.hero_title %}
-      <h1 class="page-hero__title">{{ module.hero_title }}</h1>
+      {% if module.hero_title or module.hero_title_zh %}
+      <h1 class="page-hero__title">{{ t(module.hero_title_zh, module.hero_title) }}</h1>
       {% endif %}
-      {% if module.hero_subtitle %}
-      <div class="page-hero__subtitle">{{ module.hero_subtitle }}</div>
+      {% if module.hero_subtitle or module.hero_subtitle_zh %}
+      <div class="page-hero__subtitle">{% if html_lang == "zh-tw" and module.hero_subtitle_zh %}{{ module.hero_subtitle_zh }}{% else %}{{ module.hero_subtitle }}{% endif %}</div>
       {% endif %}
     </div>
   </section>

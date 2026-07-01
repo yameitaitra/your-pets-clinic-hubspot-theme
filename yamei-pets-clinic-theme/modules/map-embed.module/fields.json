@@ -1,0 +1,14 @@
+[
+    { "id": "embed_url", "name": "embed_url", "label": "Google Maps Embed URL", "help_text": "Google Maps → 分享 → 嵌入地圖 → 複製 iframe 裡的 src 網址", "type": "text", "required": true, "default": "https://www.google.com/maps?q=Tainan+City+Taiwan&output=embed" },
+    { "id": "map_height", "name": "map_height", "label": "Map Height (px)", "type": "number", "default": 400 },
+    { "id": "border_radius", "name": "border_radius", "label": "Border Radius (px)", "type": "number", "default": 16 },
+
+    { "id": "show_card", "name": "show_card", "label": "Show Address Card", "type": "boolean", "default": true },
+    { "id": "clinic_name_zh", "name": "clinic_name_zh", "label": "Clinic Name（中文）", "type": "text", "default": "梅梅寵物診所" },
+    { "id": "clinic_name", "name": "clinic_name", "label": "Clinic Name (English)", "type": "text", "default": "Yamei Pets Clinic" },
+    { "id": "address_zh", "name": "address_zh", "label": "Address（中文）", "type": "text", "default": "台南市寵物大道 123 號（708830）" },
+    { "id": "address", "name": "address", "label": "Address (English)", "type": "text", "default": "No. 123 Pets Avenue, Tainan City, Taiwan 708830" },
+
+    { "id": "show_directions_link", "name": "show_directions_link", "label": "Show 'Get Directions' Link", "type": "boolean", "default": true },
+    { "id": "directions_url", "name": "directions_url", "label": "Directions URL", "type": "text", "default": "https://maps.google.com" }
+  ]

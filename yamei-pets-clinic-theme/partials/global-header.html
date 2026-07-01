@@ -4,88 +4,251 @@
   isAvailableForNewContent: false
 -->
 <header class="yp-header">
-    <div class="yp-header__inner">
-      <!-- Logo -->
-      <div class="yp-header__logo">
-        <a href="/">
-          <span class="yp-header__logo-icon">🐾</span>
-          <span class="yp-header__logo-text">Yamei Pets Clinic💖</span>
-        </a>
-      </div>
-  
-      <!-- Navigation -->
-      <nav class="yp-header__nav">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/services">Services</a></li>
-          <li><a href="/our-doctors">Our Doctors</a></li>
-          <li><a href="/contact">Contact Us</a></li>
-          <li><a href="/campaign">Campaign</a></li>
-        </ul>
-      </nav>
-  
-      <!-- CTA Button -->
-      <div class="yp-header__cta">
-        <a href="/contact" class="yp-btn yp-btn--primary">Book Appointment</a>
-      </div>
+  <div class="yp-header__inner">
+    <!-- Logo -->
+    <div class="yp-header__logo">
+      <a href="{% if html_lang == "zh-tw" %}/yamei/home{% else %}/en/yamei/home{% endif %}">
+        <span class="yp-header__logo-icon">🐾</span>
+        <span class="yp-header__logo-text">
+          {% if html_lang == "zh-tw" %}梅梅寵物診所💖{% else %}Yamei Pets Clinic💖{% endif %}
+        </span>
+      </a>
     </div>
-  </header>
-  
-  <style>
-    .yp-header {
-      background: #ffffff;
-      border-bottom: 2px solid #e8f4f0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-    .yp-header__inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 72px;
-    }
-    .yp-header__logo a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-    .yp-header__logo-icon { font-size: 28px; }
-    .yp-header__logo-text {
-      font-size: 20px;
-      font-weight: 700;
-      color: {{ theme.primary_color.color }};
-      letter-spacing: -0.3px;
-    }
-    .yp-header__nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 32px;
-    }
-    .yp-header__nav a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      font-size: 15px;
-      transition: color 0.2s;
-    }
-    .yp-header__nav a:hover { color: {{ theme.primary_color.color }}; }
-    .yp-btn--primary {
-      background: {{ theme.primary_color.color }};
-      color: #fff;
-      padding: 10px 22px;
-      border-radius: {{ theme.button_border_radius }}px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      transition: background 0.2s;
-    }
-    .yp-btn--primary:hover { background: {{ theme.secondary_color.color }}; }
-    </style>
+
+    <!-- Navigation -->
+    <nav class="yp-header__nav">
+      {% if html_lang == "zh-tw" %}
+        <ul>
+          <li><a href="/yamei/home">首頁</a></li>
+          <li><a href="/yamei/service">服務項目</a></li>
+          <li><a href="/yamei/our-doctors">醫療團隊</a></li>
+          <li><a href="/yamei/contact">聯絡我們</a></li>
+        </ul>
+      {% else %}
+        <ul>
+          <li><a href="/en/yamei/home">Home</a></li>
+          <li><a href="/en/yamei/service">Services</a></li>
+          <li><a href="/en/yamei/our-doctors">Our Doctors</a></li>
+          <li><a href="/en/yamei/contact">Contact Us</a></li>
+        </ul>
+      {% endif %}
+    </nav>
+
+    <!-- Custom Language Switcher (老師同款 dropdown) -->
+    <div class="yp-lang">
+      <button class="yp-lang__toggle" type="button" aria-haspopup="true" aria-expanded="false">
+        <span class="yp-lang__globe">🌐</span>
+        <span class="yp-lang__current">
+          {% if html_lang == "zh-tw" %}中文{% else %}EN{% endif %}
+        </span>
+        <span class="yp-lang__caret">▾</span>
+      </button>
+      <ul class="yp-lang__menu" hidden>
+        <li>
+          <a href="/en/yamei/home" class="yp-lang__item hs-skip-lang-url-rewrite {% if html_lang != 'zh-tw' %}is-active{% endif %}">
+            <span class="yp-lang__code">US</span>
+            <span class="yp-lang__label">English</span>
+            {% if html_lang != "zh-tw" %}<span class="yp-lang__check">✓</span>{% endif %}
+          </a>
+        </li>
+        <li>
+          <a href="/yamei/home" class="yp-lang__item hs-skip-lang-url-rewrite {% if html_lang == 'zh-tw' %}is-active{% endif %}">
+            <span class="yp-lang__code">TW</span>
+            <span class="yp-lang__label">繁體中文</span>
+            {% if html_lang == "zh-tw" %}<span class="yp-lang__check">✓</span>{% endif %}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- CTA Button -->
+    <div class="yp-header__cta">
+      <a href="{% if html_lang == "zh-tw" %}/yamei/booking{% else %}/en/yamei/booking{% endif %}" class="yp-btn yp-btn--primary">
+        {% if html_lang == "zh-tw" %}立即預約{% else %}Book Appointment{% endif %}
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  (function () {
+    var switcher = document.querySelector('.yp-lang');
+    if (!switcher) return;
+    var toggle = switcher.querySelector('.yp-lang__toggle');
+    var menu = switcher.querySelector('.yp-lang__menu');
+
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = !menu.hasAttribute('hidden');
+      if (isOpen) {
+        menu.setAttribute('hidden', '');
+        toggle.setAttribute('aria-expanded', 'false');
+      } else {
+        menu.removeAttribute('hidden');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!switcher.contains(e.target)) {
+        menu.setAttribute('hidden', '');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+</script>
+
+<style>
+  .yp-header {
+    background: #ffffff;
+    border-bottom: 2px solid #e8f4f0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .yp-header__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    gap: 20px;
+  }
+  .yp-header__logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .yp-header__logo-icon { font-size: 28px; }
+  .yp-header__logo-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: {{ theme.primary_color.color }};
+    letter-spacing: -0.3px;
+    white-space: nowrap;
+  }
+  .yp-header__nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 28px;
+  }
+  .yp-header__nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+  .yp-header__nav a:hover { color: {{ theme.primary_color.color }}; }
+
+  /* ===== Custom Language Switcher ===== */
+  .yp-lang {
+    position: relative;
+    display: inline-block;
+  }
+  .yp-lang__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #f4f9f7;
+    border: 1px solid #d4e6dd;
+    border-radius: 999px;
+    padding: 7px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+  .yp-lang__toggle:hover {
+    background: #e8f4f0;
+    border-color: {{ theme.primary_color.color }};
+  }
+  .yp-lang__globe {
+    font-size: 14px;
+    line-height: 1;
+  }
+  .yp-lang__current {
+    font-weight: 600;
+  }
+  .yp-lang__caret {
+    font-size: 10px;
+    opacity: 0.7;
+    transition: transform 0.2s;
+  }
+  .yp-lang__toggle[aria-expanded="true"] .yp-lang__caret {
+    transform: rotate(180deg);
+  }
+  .yp-lang__menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: 200px;
+    background: #fff;
+    border: 1px solid #e0e8e4;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    padding: 6px;
+    list-style: none;
+    margin: 0;
+    z-index: 1001;
+  }
+  .yp-lang__menu[hidden] { display: none; }
+  .yp-lang__menu li { list-style: none; margin: 0; padding: 0; }
+  .yp-lang__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    transition: background 0.15s;
+    white-space: nowrap;
+  }
+  .yp-lang__item:hover { background: #f4f9f7; }
+  .yp-lang__item.is-active { background: rgba(13, 79, 79, 0.05); }
+  .yp-lang__code {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 20px;
+    background: #e8f4f0;
+    color: {{ theme.primary_color.color }};
+    font-size: 11px;
+    font-weight: 700;
+    padding: 0 6px;
+    border-radius: 4px;
+    letter-spacing: 0.4px;
+  }
+  .yp-lang__label { flex: 1; }
+  .yp-lang__check {
+    color: {{ theme.primary_color.color }};
+    font-weight: 700;
+  }
+
+  .yp-btn--primary {
+    background: {{ theme.primary_color.color }};
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: {{ theme.button_border_radius }}px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .yp-btn--primary:hover { background: {{ theme.secondary_color.color }}; }
+  </style>

@@ -6,52 +6,27 @@
       "type": "hubdbtable",
       "required": true
     },
-    {
-      "id": "section_badge",
-      "name": "section_badge",
-      "label": "Section Badge",
-      "type": "text",
-      "default": "🏥 AAHA Accredited Clinic"
-    },
-    {
-      "id": "section_title",
-      "name": "section_title",
-      "label": "Section Title",
-      "type": "text",
-      "default": "Our Clinic Services"
-    },
-    {
-      "id": "section_subtitle",
-      "name": "section_subtitle",
-      "label": "Section Subtitle",
-      "type": "text",
-      "default": "From routine wellness exams to advanced surgery — we provide a full spectrum of veterinary care tailored to every pet and every need."
-    },
-    {
-      "id": "items_per_page",
-      "name": "items_per_page",
-      "label": "Items Per Page",
-      "type": "number",
-      "default": 4
-    },
-    {
-      "id": "show_filters",
-      "name": "show_filters",
-      "label": "Show Category Filters",
-      "type": "boolean",
-      "default": true
-    },
-    {
-      "id": "book_cta_text",
-      "name": "book_cta_text",
-      "label": "Card CTA Text",
-      "type": "text",
-      "default": "Book This Service"
-    },
-    {
-      "id": "book_cta_url",
-      "name": "book_cta_url",
-      "label": "Card CTA URL",
-      "type": "link"
-    }
+    { "id": "section_badge_zh", "name": "section_badge_zh", "label": "Section Badge（中文）", "type": "text", "default": "🏥 AAHA 認證診所" },
+    { "id": "section_badge", "name": "section_badge", "label": "Section Badge (English)", "type": "text", "default": "🏥 AAHA Accredited Clinic" },
+    { "id": "section_title_zh", "name": "section_title_zh", "label": "Section Title（中文）", "type": "text", "default": "本院服務項目" },
+    { "id": "section_title", "name": "section_title", "label": "Section Title (English)", "type": "text", "default": "Our Clinic Services" },
+    { "id": "section_subtitle_zh", "name": "section_subtitle_zh", "label": "Section Subtitle（中文）", "type": "text", "default": "從例行健康檢查到先進外科手術，我們為每一位毛孩提供全方位的獸醫照護。" },
+    { "id": "section_subtitle", "name": "section_subtitle", "label": "Section Subtitle (English)", "type": "text", "default": "From routine wellness exams to advanced surgery — we provide a full spectrum of veterinary care tailored to every pet and every need." },
+    { "id": "items_per_page", "name": "items_per_page", "label": "Items Per Page", "type": "number", "default": 4 },
+    { "id": "show_filters", "name": "show_filters", "label": "Show Category Filters", "type": "boolean", "default": true },
+    { "id": "book_cta_text_zh", "name": "book_cta_text_zh", "label": "Card CTA Text（中文）", "type": "text", "default": "預約此服務" },
+    { "id": "book_cta_text", "name": "book_cta_text", "label": "Card CTA Text (English)", "type": "text", "default": "Book This Service" },
+    { "id": "book_cta_url", "name": "book_cta_url", "label": "Card CTA URL", "type": "link" },
+    { "id": "label_all_zh", "name": "label_all_zh", "label": "Filter: All（中文）", "type": "text", "default": "全部" },
+    { "id": "label_all", "name": "label_all", "label": "Filter: All (English)", "type": "text", "default": "All" },
+    { "id": "label_popular_zh", "name": "label_popular_zh", "label": "Badge: Popular（中文）", "type": "text", "default": "熱門" },
+    { "id": "label_popular", "name": "label_popular", "label": "Badge: Popular (English)", "type": "text", "default": "Popular" },
+    { "id": "label_showing_zh", "name": "label_showing_zh", "label": "Count: 'Showing'（中文）", "type": "text", "default": "顯示" },
+    { "id": "label_showing", "name": "label_showing", "label": "Count: 'Showing' (English)", "type": "text", "default": "Showing" },
+    { "id": "label_of_zh", "name": "label_of_zh", "label": "Count: 'of'（中文）", "type": "text", "default": "／共" },
+    { "id": "label_of", "name": "label_of", "label": "Count: 'of' (English)", "type": "text", "default": "of" },
+    { "id": "label_unit_zh", "name": "label_unit_zh", "label": "Count: unit（中文）", "type": "text", "default": "項服務" },
+    { "id": "label_unit", "name": "label_unit", "label": "Count: unit (English)", "type": "text", "default": "services" },
+    { "id": "label_page_zh", "name": "label_page_zh", "label": "Count: 'Page'（中文）", "type": "text", "default": "頁" },
+    { "id": "label_page", "name": "label_page", "label": "Count: 'Page' (English)", "type": "text", "default": "Page" }
   ]

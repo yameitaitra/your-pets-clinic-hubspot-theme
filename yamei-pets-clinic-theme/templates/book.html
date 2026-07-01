@@ -1,0 +1,23 @@
+<!--
+  templateType: page
+  label: "Book Appointment Page"
+  isAvailableForNewContent: true
+-->
+{% extends "./base.html" %}
+
+{% block main %}
+  {% dnd_area "book_hero"
+    label="Booking Hero"
+  %}
+  {% end_dnd_area %}
+
+  {% dnd_area "book_form"
+    label="Appointment Form"
+  %}
+  {% end_dnd_area %}
+
+  {% dnd_area "book_extra"
+    label="Extra Content"
+  %}
+  {% end_dnd_area %}
+{% endblock %}

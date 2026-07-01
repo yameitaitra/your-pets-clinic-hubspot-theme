@@ -7,46 +7,87 @@
     <div class="yp-footer__inner">
       <!-- Brand Column -->
       <div class="yp-footer__brand">
-        <div class="yp-footer__logo">🐾 Yamei Pets Clinic</div>
-        <p>Caring for your beloved pets with professional medical expertise and heartfelt compassion.</p>
+        <div class="yp-footer__logo">
+          {% if html_lang == "zh-tw" %}🐾 梅梅寵物診所{% else %}🐾 Yamei Pets Clinic{% endif %}
+        </div>
+        <p>
+          {% if html_lang == "zh-tw" %}
+            以專業醫療與真心關懷，守護您心愛的毛孩。
+          {% else %}
+            Caring for your beloved pets with professional medical expertise and heartfelt compassion.
+          {% endif %}
+        </p>
       </div>
   
       <!-- Quick Links -->
       <div class="yp-footer__col">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/services">Services</a></li>
-          <li><a href="/our-doctors">Our Doctors</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
+        <h4>{% if html_lang == "zh-tw" %}快速連結{% else %}Quick Links{% endif %}</h4>
+        {% if html_lang == "zh-tw" %}
+          <ul>
+            <li><a href="/yamei/home">首頁</a></li>
+            <li><a href="/yamei/service">服務項目</a></li>
+            <li><a href="/yamei/our-doctors">醫療團隊</a></li>
+            <li><a href="/yamei/contact">聯絡我們</a></li>
+          </ul>
+        {% else %}
+          <ul>
+            <li><a href="/en/yamei/home">Home</a></li>
+            <li><a href="/en/yamei/service">Services</a></li>
+            <li><a href="/en/yamei/our-doctors">Our Doctors</a></li>
+            <li><a href="/en/yamei/contact">Contact</a></li>
+          </ul>
+        {% endif %}
       </div>
   
       <!-- Services -->
       <div class="yp-footer__col">
-        <h4>Our Services</h4>
-        <ul>
-          <li><a href="/services">General Check-up</a></li>
-          <li><a href="/services">Vaccination</a></li>
-          <li><a href="/services">Surgery</a></li>
-          <li><a href="/services">Dental Care</a></li>
-        </ul>
+        <h4>{% if html_lang == "zh-tw" %}服務項目{% else %}Our Services{% endif %}</h4>
+        {% if html_lang == "zh-tw" %}
+          <ul>
+            <li><a href="/yamei/service">健康檢查</a></li>
+            <li><a href="/yamei/service">疫苗接種</a></li>
+            <li><a href="/yamei/service">外科手術</a></li>
+            <li><a href="/yamei/service">牙齒照護</a></li>
+          </ul>
+        {% else %}
+          <ul>
+            <li><a href="/en/yamei/service">General Check-up</a></li>
+            <li><a href="/en/yamei/service">Vaccination</a></li>
+            <li><a href="/en/yamei/service">Surgery</a></li>
+            <li><a href="/en/yamei/service">Dental Care</a></li>
+          </ul>
+        {% endif %}
       </div>
   
       <!-- Contact Info -->
       <div class="yp-footer__col">
-        <h4>Contact Us</h4>
-        <ul>
-          <li>📍 123 Pet Street, Tainan</li>
-          <li>📞 (06) 123-4567</li>
-          <li>✉️ hello@yameipets.com</li>
-          <li>🕐 Mon–Sat: 9AM – 6PM</li>
-        </ul>
+        <h4>{% if html_lang == "zh-tw" %}聯絡資訊{% else %}Contact Us{% endif %}</h4>
+        {% if html_lang == "zh-tw" %}
+          <ul>
+            <li>📍 台南市寵物大道 123 號（708830）</li>
+            <li>📞 (06) 123-4567</li>
+            <li>✉️ hello@yameipets.com</li>
+            <li>🕐 週一至週六 9:00 – 18:00</li>
+          </ul>
+        {% else %}
+          <ul>
+            <li>📍 No. 123 Pets Avenue, Tainan City, Taiwan 708830</li>
+            <li>📞 (06) 123-4567</li>
+            <li>✉️ hello@yameipets.com</li>
+            <li>🕐 Mon–Sat: 9AM – 6PM</li>
+          </ul>
+        {% endif %}
       </div>
     </div>
   
     <div class="yp-footer__bottom">
-      <p>© {{ content.publish_date|datetimeformat('%Y') }} Yamei Pets Clinic. All rights reserved.</p>
+      <p>
+        {% if html_lang == "zh-tw" %}
+          © {{ content.publish_date|datetimeformat('%Y') }} 梅梅寵物診所. 版權所有.
+        {% else %}
+          © {{ content.publish_date|datetimeformat('%Y') }} Yamei Pets Clinic. All rights reserved.
+        {% endif %}
+      </p>
     </div>
   </footer>
   
@@ -95,3 +136,4 @@
       opacity: 0.6;
     }
     </style>
+ 

@@ -18,32 +18,40 @@
     color: #fff;
   }
 </style>
+{# t(zh, en)：中文頁且 zh 有值 → 顯示 zh，否則退回 en #}
+{% macro t(zh, en) %}{% if html_lang == "zh-tw" and zh %}{{ zh }}{% else %}{{ en }}{% endif %}{% endmacro %}
 {% set rows = hubdb_table_rows(module.hubdb_table_id, 'orderBy=name') %}
 <section class="service-cards">
   <div class="service-cards__header">
-    {% if module.section_label %}<p class="service-cards__label">{{ module.section_label }}</p>{% endif %}
-    {% if module.section_title %}<h2 class="service-cards__title">{{ module.section_title }}</h2>{% endif %}
-    {% if module.section_subtitle %}<p class="service-cards__subtitle">{{ module.section_subtitle }}</p>{% endif %}
+    {% if module.section_label or module.section_label_zh %}
+    <p class="service-cards__label">{{ t(module.section_label_zh, module.section_label) }}</p>
+    {% endif %}
+    {% if module.section_title or module.section_title_zh %}
+    <h2 class="service-cards__title">{{ t(module.section_title_zh, module.section_title) }}</h2>
+    {% endif %}
+    {% if module.section_subtitle or module.section_subtitle_zh %}
+    <p class="service-cards__subtitle">{{ t(module.section_subtitle_zh, module.section_subtitle) }}</p>
+    {% endif %}
   </div>
   <div class="service-cards__grid cols--{{ module.style_fields.card_columns }} gap--{{ module.style_fields.gap }}">
     {% for row in rows %}
       {% if not module.show_popular_only or row.popular %}
       <div class="service-card radius--{{ module.style_fields.card_radius }}"
            style="background-color: {{ module.style_fields.card_background.color }}">
-        {% if row.image %}<img src="{{ row.image.url }}" alt="{{ row.name }}" class="service-card__img">{% endif %}
+        {% if row.image %}<img src="{{ row.image.url }}" alt="{{ t(row.name_zh, row.name) }}" class="service-card__img">{% endif %}
         <div class="service-card__body">
-          <span class="service-card__category">{{ row.category }}</span>
-          <h3 class="service-card__name">{{ row.name }}</h3>
-          <p class="service-card__desc">{{ row.description }}</p>
+          <span class="service-card__category">{{ t(row.category_zh.label, row.category.name) }}</span>
+          <h3 class="service-card__name">{{ t(row.name_zh, row.name) }}</h3>
+          <p class="service-card__desc">{{ t(row.description_zh, row.description) }}</p>
           {% if module.show_price %}<p class="service-card__price">{{ row.price }} · {{ row.duration }}</p>{% endif %}
         </div>
       </div>
       {% endif %}
     {% endfor %}
   </div>
-  {% if module.cta_text %}
+  {% if module.cta_text or module.cta_text_zh %}
   <div class="service-cards__footer">
-    <a href="{{ module.cta_url.url.href }}" class="service-cards__cta">{{ module.cta_text }}</a>
+    <a href="{{ module.cta_url.url.href }}" class="service-cards__cta">{{ t(module.cta_text_zh, module.cta_text) }}</a>
   </div>
   {% endif %}
 </section>
