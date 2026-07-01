@@ -1,25 +1,11 @@
 [
-    {
-      "id": "badge_text",
-      "name": "badge_text",
-      "label": "Badge Text",
-      "type": "text",
-      "default": "Why Choose PawClinic"
-    },
-    {
-      "id": "title",
-      "name": "title",
-      "label": "Title",
-      "type": "text",
-      "default": "Every Visit is a Five-Star Experience"
-    },
-    {
-      "id": "subtitle",
-      "name": "subtitle",
-      "label": "Subtitle",
-      "type": "text",
-      "default": "We go beyond just treating symptoms — we build lasting relationships with your pet and provide a calm, caring environment at every stage of their health journey."
-    },
+    { "id": "badge_text_zh", "name": "badge_text_zh", "label": "Badge Text（中文）", "type": "text", "default": "為什麼選擇梅梅" },
+    { "id": "badge_text", "name": "badge_text", "label": "Badge Text (English)", "type": "text", "default": "Why Choose Yamei" },
+    { "id": "title_zh", "name": "title_zh", "label": "Title（中文）", "type": "text", "default": "每一次看診都是五星級體驗" },
+    { "id": "title", "name": "title", "label": "Title (English)", "type": "text", "default": "Every Visit is a Five-Star Experience" },
+    { "id": "subtitle_zh", "name": "subtitle_zh", "label": "Subtitle（中文）", "type": "text", "default": "我們不只治療症狀，更與您的毛孩建立長久關係，在每個健康階段提供安心、溫暖的照護環境。" },
+    { "id": "subtitle", "name": "subtitle", "label": "Subtitle (English)", "type": "text", "default": "We go beyond just treating symptoms — we build lasting relationships with your pet and provide a calm, caring environment at every stage of their health journey." },
+
     {
       "id": "features",
       "name": "features",
@@ -27,69 +13,40 @@
       "type": "group",
       "occurrence": { "min": 1, "max": 8, "default": 4 },
       "children": [
-        {
-          "id": "feature_text",
-          "name": "feature_text",
-          "label": "Feature Text",
-          "type": "text"
-        }
+        { "id": "feature_text_zh", "name": "feature_text_zh", "label": "Feature（中文）", "type": "text" },
+        { "id": "feature_text", "name": "feature_text", "label": "Feature (English)", "type": "text" }
       ],
       "default": [
-        { "feature_text": "AVMA & AAHA accredited clinic" },
-        { "feature_text": "Board-certified vets with 3–10 years of specialty experience" },
-        { "feature_text": "Stress-free, fear-free environment for anxious pets" },
-        { "feature_text": "Satisfaction guaranteed — we follow up after every visit" }
+        { "feature_text_zh": "AVMA 與 AAHA 雙認證診所", "feature_text": "AVMA & AAHA accredited clinic" },
+        { "feature_text_zh": "專科獸醫具 3–10 年專業經驗", "feature_text": "Board-certified vets with 3–10 years of specialty experience" },
+        { "feature_text_zh": "為緊張毛孩打造零壓力、無恐懼環境", "feature_text": "Stress-free, fear-free environment for anxious pets" },
+        { "feature_text_zh": "滿意保證——每次看診後主動追蹤關懷", "feature_text": "Satisfaction guaranteed — we follow up after every visit" }
       ]
     },
-    {
-      "id": "primary_cta_text",
-      "name": "primary_cta_text",
-      "label": "Primary Button Text",
-      "type": "text",
-      "default": "Book an Appointment"
-    },
-    {
-      "id": "primary_cta_url",
-      "name": "primary_cta_url",
-      "label": "Primary Button URL",
-      "type": "link"
-    },
-    {
-      "id": "secondary_cta_text",
-      "name": "secondary_cta_text",
-      "label": "Secondary Button Text",
-      "type": "text",
-      "default": "Meet the Team"
-    },
-    {
-      "id": "secondary_cta_url",
-      "name": "secondary_cta_url",
-      "label": "Secondary Button URL",
-      "type": "link"
-    },
+
+    { "id": "primary_cta_text_zh", "name": "primary_cta_text_zh", "label": "Primary Button（中文）", "type": "text", "default": "立即預約" },
+    { "id": "primary_cta_text", "name": "primary_cta_text", "label": "Primary Button (English)", "type": "text", "default": "Book an Appointment" },
+    { "id": "primary_cta_url", "name": "primary_cta_url", "label": "Primary Button URL", "type": "link" },
+    { "id": "secondary_cta_text_zh", "name": "secondary_cta_text_zh", "label": "Secondary Button（中文）", "type": "text", "default": "認識團隊" },
+    { "id": "secondary_cta_text", "name": "secondary_cta_text", "label": "Secondary Button (English)", "type": "text", "default": "Meet the Team" },
+    { "id": "secondary_cta_url", "name": "secondary_cta_url", "label": "Secondary Button URL", "type": "link" },
+
     {
       "id": "stats",
       "name": "stats",
       "label": "Stats",
       "type": "group",
-      "occurrence": { "min": 0, "max": 4, "default": 2 },
+      "occurrence": { "min": 0, "max": 4, "default": 4 },
       "children": [
-        {
-          "id": "stat_value",
-          "name": "stat_value",
-          "label": "Value",
-          "type": "text"
-        },
-        {
-          "id": "stat_label",
-          "name": "stat_label",
-          "label": "Label",
-          "type": "text"
-        }
+        { "id": "stat_value", "name": "stat_value", "label": "Value", "type": "text" },
+        { "id": "stat_label_zh", "name": "stat_label_zh", "label": "Label（中文）", "type": "text" },
+        { "id": "stat_label", "name": "stat_label", "label": "Label (English)", "type": "text" }
       ],
       "default": [
-        { "stat_value": "4.9★", "stat_label": "Average Rating" },
-        { "stat_value": "8,000+", "stat_label": "Patients Treated" }
+        { "stat_value": "4.9★", "stat_label_zh": "平均評分", "stat_label": "Average Rating" },
+        { "stat_value": "8,000+", "stat_label_zh": "服務毛孩數", "stat_label": "Patients Treated" },
+        { "stat_value": "10 yrs", "stat_label_zh": "深耕年資", "stat_label": "In Practice" },
+        { "stat_value": "100%", "stat_label_zh": "AAHA 認證", "stat_label": "AAHA Accredited" }
       ]
     }
   ]

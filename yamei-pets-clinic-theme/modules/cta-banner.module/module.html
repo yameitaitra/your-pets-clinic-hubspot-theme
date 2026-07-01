@@ -1,31 +1,33 @@
+{# t(zh, en)：中文頁且 zh 有值 → 顯示 zh，否則退回 en #}
+{% macro t(zh, en) %}{% if html_lang == "zh-tw" and zh %}{{ zh }}{% else %}{{ en }}{% endif %}{% endmacro %}
 <section class="cta-banner text--{{ module.style_fields.text_alignment|default('center') }}">
   <div class="cta-banner__inner">
-    {% if module.badge_text %}
-      <span class="cta-banner__badge">⭐ {{ module.badge_text }}</span>
+    {% if module.badge_text or module.badge_text_zh %}
+      <span class="cta-banner__badge">⭐ {{ t(module.badge_text_zh, module.badge_text) }}</span>
     {% endif %}
 
-    {% if module.title %}
-      <h2 class="cta-banner__title">{{ module.title }}</h2>
+    {% if module.title or module.title_zh %}
+      <h2 class="cta-banner__title">{{ t(module.title_zh, module.title) }}</h2>
     {% endif %}
 
-    {% if module.subtitle %}
-      <p class="cta-banner__subtitle">{{ module.subtitle }}</p>
+    {% if module.subtitle or module.subtitle_zh %}
+      <p class="cta-banner__subtitle">{{ t(module.subtitle_zh, module.subtitle) }}</p>
     {% endif %}
 
     <div class="cta-banner__buttons">
-      {% if module.primary_button_text %}
+      {% if module.primary_button_text or module.primary_button_text_zh %}
         <a href="{{ module.primary_button_url.url.href|default('#') }}"
            class="cta-banner__btn cta-banner__btn--primary"
            {% if module.primary_button_url.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>
-          {{ module.primary_button_text }}
+          {{ t(module.primary_button_text_zh, module.primary_button_text) }}
         </a>
       {% endif %}
 
-      {% if module.secondary_button_text %}
+      {% if module.secondary_button_text or module.secondary_button_text_zh %}
         <a href="{{ module.secondary_button_url.url.href|default('#') }}"
            class="cta-banner__btn cta-banner__btn--secondary"
            {% if module.secondary_button_url.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>
-          {{ module.secondary_button_text }}
+          {{ t(module.secondary_button_text_zh, module.secondary_button_text) }}
         </a>
       {% endif %}
     </div>

@@ -1,0 +1,54 @@
+.map-embed { padding: 0 0 8px; }
+.map-embed__wrap {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.map-embed__frame {
+  display: block;
+  width: 100%;
+  border: 0;
+}
+.map-embed__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eef2f5;
+  color: #667;
+  font-size: 15px;
+  text-align: center;
+  padding: 20px;
+}
+.map-embed__card {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 280px;
+  max-width: calc(100% - 48px);
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+  padding: 18px;
+}
+.map-embed__card-name { font-size: 16px; font-weight: 700; color: #0d4f4f; margin-bottom: 6px; }
+.map-embed__card-addr { font-size: 13px; color: #555; line-height: 1.5; margin-bottom: 14px; }
+.map-embed__btn {
+  display: block;
+  text-align: center;
+  padding: 10px 14px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+.map-embed__btn--primary { background: #0d9488; color: #fff; }
+.map-embed__btn--primary:hover { background: #0f766e; }
+.map-embed__btn--ghost { background: #fff; color: #333; border: 1px solid #d1d5db; }
+.map-embed__btn--ghost:hover { background: #f9fafb; }
+.map-embed__btn:last-child { margin-bottom: 0; }
+
+@media (max-width: 560px) {
+  .map-embed__card { position: static; width: auto; max-width: none; margin: 16px; box-shadow: 0 4px 14px rgba(0,0,0,0.1); }
+}

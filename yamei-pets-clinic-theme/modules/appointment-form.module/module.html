@@ -3,35 +3,46 @@
     color: {{ theme.heading_color.color }};
   }
 </style>
+{# t(zh, en)：中文頁且 zh 有值 → 顯示 zh，否則退回 en #}
+{% macro t(zh, en) %}{% if html_lang == "zh-tw" and zh %}{{ zh }}{% else %}{{ en }}{% endif %}{% endmacro %}
 <section class="appt-form">
   <div class="appt-form__inner">
     <div class="appt-form__text">
-      {% if module.section_title %}<h2 class="appt-form__title">{{ module.section_title }}</h2>{% endif %}
-      {% if module.section_subtitle %}<p class="appt-form__subtitle">{{ module.section_subtitle }}</p>{% endif %}
+      {% if module.section_title or module.section_title_zh %}
+      <h2 class="appt-form__title">{{ t(module.section_title_zh, module.section_title) }}</h2>
+      {% endif %}
+      {% if module.section_subtitle or module.section_subtitle_zh %}
+      <p class="appt-form__subtitle">{{ t(module.section_subtitle_zh, module.section_subtitle) }}</p>
+      {% endif %}
       {% if module.show_clinic_info %}
       <div class="appt-form__clinic-info">
-        <p>📍 123 Vet Street, Taipei</p>
-        <p>📞 (02) 1234-5678</p>
-        <p>🕐 Mon–Sun 9:00 AM – 6:00 PM</p>
+        <p>📍 {{ t(module.clinic_address_zh, module.clinic_address) }}</p>
+        {% if module.clinic_phone %}<p>📞 {{ module.clinic_phone }}</p>{% endif %}
+        <p>🕐 {{ t(module.clinic_hours_zh, module.clinic_hours) }}</p>
       </div>
       {% endif %}
       {% if module.show_emergency_card %}
       <div class="appt-form__emergency">
-        <strong>🚨 Emergency?</strong>
-        <p>Call us immediately at (02) 1234-5678</p>
+        <strong>🚨 {{ t(module.emergency_title_zh, module.emergency_title) }}</strong>
+        <p>{{ t(module.emergency_text_zh, module.emergency_text) }}</p>
       </div>
       {% endif %}
     </div>
 
     <div class="appt-form__form-wrap">
       {% if module.hubspot_form_id and module.portal_id %}
+        {% if html_lang == "zh-tw" and module.hubspot_form_id_zh %}
+          {% set active_form_id = module.hubspot_form_id_zh %}
+        {% else %}
+          {% set active_form_id = module.hubspot_form_id %}
+        {% endif %}
         <div id="appt-hbspt-form"></div>
         <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
         <script>
           hbspt.forms.create({
             region: "na1",
             portalId: "{{ module.portal_id }}",
-            formId: "{{ module.hubspot_form_id }}",
+            formId: "{{ active_form_id }}",
             target: "#appt-hbspt-form",
             {% if module.success_message %}
             inlineMessage: "{{ module.success_message }}",

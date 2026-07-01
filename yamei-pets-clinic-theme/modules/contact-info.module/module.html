@@ -1,0 +1,97 @@
+{# t(zh, en)：中文頁且 zh 有值 → 顯示 zh，否則退回 en #}
+{% macro t(zh, en) %}{% if html_lang == "zh-tw" and zh %}{{ zh }}{% else %}{{ en }}{% endif %}{% endmacro %}
+<section class="ci" style="background-color: {{ module.style_fields.background_color.color }}">
+  <div class="ci__inner">
+
+    <!-- LEFT: contact channels -->
+    <div class="ci__left">
+      {% if module.section_title or module.section_title_zh %}
+      <h2 class="ci__title">{{ t(module.section_title_zh, module.section_title) }}</h2>
+      {% endif %}
+      {% if module.section_subtitle or module.section_subtitle_zh %}
+      <p class="ci__subtitle">{{ t(module.section_subtitle_zh, module.section_subtitle) }}</p>
+      {% endif %}
+
+      {% if module.address or module.address_zh %}
+      <div class="ci-card">
+        <div class="ci-card__icon">📍</div>
+        <div class="ci-card__body">
+          <div class="ci-card__label">{{ t("診所地址", "Our Address") }}</div>
+          <div class="ci-card__value">{{ t(module.address_zh, module.address) }}</div>
+        </div>
+      </div>
+      {% endif %}
+
+      {% if module.phone %}
+      <a class="ci-card" href="tel:{{ module.phone }}">
+        <div class="ci-card__icon">📞</div>
+        <div class="ci-card__body">
+          <div class="ci-card__label">{{ t("撥打電話", "Call Us") }}</div>
+          <div class="ci-card__value">{{ module.phone }}</div>
+        </div>
+      </a>
+      {% endif %}
+
+      {% if module.email %}
+      <a class="ci-card" href="mailto:{{ module.email }}">
+        <div class="ci-card__icon">✉️</div>
+        <div class="ci-card__body">
+          <div class="ci-card__label">{{ t("電子郵件", "Email Us") }}</div>
+          <div class="ci-card__value">{{ module.email }}</div>
+        </div>
+      </a>
+      {% endif %}
+
+      {% if module.emergency_phone %}
+      <a class="ci-card ci-card--emergency" href="tel:{{ module.emergency_phone }}">
+        <div class="ci-card__icon">🚨</div>
+        <div class="ci-card__body">
+          <div class="ci-card__label">{{ t("緊急專線", "Emergency Line") }}</div>
+          <div class="ci-card__value">{{ module.emergency_phone }} — {{ t("24 小時服務", "Available 24/7") }}</div>
+        </div>
+      </a>
+      {% endif %}
+    </div>
+
+    <!-- RIGHT: clinic hours -->
+    <div class="ci__right">
+      <div class="ci-hours">
+        <div class="ci-hours__head">
+          <h3 class="ci-hours__title">🕐 {{ t(module.hours_title_zh, module.hours_title) }}</h3>
+          <span class="ci-hours__open" data-open-today hidden>{{ t("今日營業中！", "We're open today!") }}</span>
+        </div>
+
+        <div class="ci-hours__list">
+          <div class="ci-hours__row" data-day="1"><span class="ci-hours__day">{{ t("星期一", "Monday") }} <em class="ci-hours__today" hidden>({{ t("今天", "Today") }})</em></span><span class="ci-hours__time">{{ t(module.hours_weekday_zh, module.hours_weekday) }}</span></div>
+          <div class="ci-hours__row" data-day="2"><span class="ci-hours__day">{{ t("星期二", "Tuesday") }} <em class="ci-hours__today" hidden>({{ t("今天", "Today") }})</em></span><span class="ci-hours__time">{{ t(module.hours_weekday_zh, module.hours_weekday) }}</span></div>
+          <div class="ci-hours__row" data-day="3"><span class="ci-hours__day">{{ t("星期三", "Wednesday") }} <em class="ci-hours__today" hidden>({{ t("今天", "Today") }})</em></span><span class="ci-hours__time">{{ t(module.hours_weekday_zh, module.hours_weekday) }}</span></div>
+          <div class="ci-hours__row" data-day="4"><span class="ci-hours__day">{{ t("星期四", "Thursday") }} <em class="ci-hours__today" hidden>({{ t("今天", "Today") }})</em></span><span class="ci-hours__time">{{ t(module.hours_weekday_zh, module.hours_weekday) }}</span></div>
+          <div class="ci-hours__row" data-day="5"><span class="ci-hours__day">{{ t("星期五", "Friday") }} <em class="ci-hours__today" hidden>({{ t("今天", "Today") }})</em></span><span class="ci-hours__time">{{ t(module.hours_weekday_zh, module.hours_weekday) }}</span></div>
+          <div class="ci-hours__row" data-day="6"><span class="ci-hours__day">{{ t("星期六", "Saturday") }} <em class="ci-hours__today" hidden>({{ t("今天", "Today") }})</em></span><span class="ci-hours__time">{{ t(module.hours_saturday_zh, module.hours_saturday) }}</span></div>
+          <div class="ci-hours__row" data-day="0"><span class="ci-hours__day">{{ t("星期日", "Sunday") }} <em class="ci-hours__today" hidden>({{ t("今天", "Today") }})</em></span><span class="ci-hours__time ci-hours__time--muted">{{ t(module.hours_sunday_zh, module.hours_sunday) }}</span></div>
+        </div>
+
+        {% if module.show_emergency_banner and (module.emergency_text or module.emergency_text_zh) %}
+        <div class="ci-hours__emergency">🚨 {{ t(module.emergency_text_zh, module.emergency_text) }}</div>
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var today = new Date().getDay(); // 0=Sun … 6=Sat
+  var rows = document.querySelectorAll('.ci-hours__row');
+  rows.forEach(function (row) {
+    if (parseInt(row.getAttribute('data-day'), 10) === today) {
+      row.classList.add('is-today');
+      var tag = row.querySelector('.ci-hours__today');
+      if (tag) tag.removeAttribute('hidden');
+      var open = document.querySelector('[data-open-today]');
+      if (open && today !== 0) open.removeAttribute('hidden');
+    }
+  });
+})();
+</script>

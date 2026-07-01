@@ -1,0 +1,36 @@
+[
+    { "id": "section_title_zh", "name": "section_title_zh", "label": "Section Title（中文）", "type": "text", "default": "聯絡資訊" },
+    { "id": "section_title", "name": "section_title", "label": "Section Title (English)", "type": "text", "default": "Get In Touch" },
+    { "id": "section_subtitle_zh", "name": "section_subtitle_zh", "label": "Section Subtitle（中文）", "type": "text", "default": "期待為您服務，歡迎透過以下任一方式與我們聯繫，或親自蒞臨。" },
+    { "id": "section_subtitle", "name": "section_subtitle", "label": "Section Subtitle (English)", "type": "text", "default": "We'd love to hear from you. Reach out via any of the channels below or visit us in person." },
+
+    { "id": "address_zh", "name": "address_zh", "label": "Address（中文）", "type": "text", "default": "台南市寵物大道 123 號（708830）" },
+    { "id": "address", "name": "address", "label": "Address (English)", "type": "text", "default": "No. 123 Pets Avenue, Tainan City, Taiwan 708830" },
+    { "id": "phone", "name": "phone", "label": "Main Phone", "type": "text", "default": "(06) 123-4567" },
+    { "id": "email", "name": "email", "label": "Email", "type": "text", "default": "hello@yameipets.com" },
+    { "id": "emergency_phone", "name": "emergency_phone", "label": "Emergency Phone", "type": "text", "default": "(06) 999-0000" },
+
+    { "id": "hours_title_zh", "name": "hours_title_zh", "label": "Hours Title（中文）", "type": "text", "default": "門診時間" },
+    { "id": "hours_title", "name": "hours_title", "label": "Hours Title (English)", "type": "text", "default": "Clinic Hours" },
+    { "id": "hours_weekday_zh", "name": "hours_weekday_zh", "label": "週一至週五 時間（中文）", "type": "text", "default": "上午 9:00 – 下午 6:00" },
+    { "id": "hours_weekday", "name": "hours_weekday", "label": "Mon–Fri Hours (English)", "type": "text", "default": "9:00 AM – 6:00 PM" },
+    { "id": "hours_saturday_zh", "name": "hours_saturday_zh", "label": "週六 時間（中文）", "type": "text", "default": "上午 9:00 – 下午 5:00" },
+    { "id": "hours_saturday", "name": "hours_saturday", "label": "Saturday Hours (English)", "type": "text", "default": "9:00 AM – 5:00 PM" },
+    { "id": "hours_sunday_zh", "name": "hours_sunday_zh", "label": "週日 時間（中文）", "type": "text", "default": "僅急診" },
+    { "id": "hours_sunday", "name": "hours_sunday", "label": "Sunday Hours (English)", "type": "text", "default": "Emergency Only" },
+
+    { "id": "show_emergency_banner", "name": "show_emergency_banner", "label": "Show Emergency Banner", "type": "boolean", "default": true },
+    { "id": "emergency_text_zh", "name": "emergency_text_zh", "label": "Emergency Banner（中文）", "type": "text", "default": "24 小時緊急專線：門診時間外的緊急狀況，請撥打 (06) 999-0000" },
+    { "id": "emergency_text", "name": "emergency_text", "label": "Emergency Banner (English)", "type": "text", "default": "24/7 Emergency Line: For urgent cases outside clinic hours, call (06) 999-0000" },
+
+    {
+      "type": "group",
+      "id": "style_fields",
+      "name": "style_fields",
+      "label": "Styles",
+      "tab": "STYLE",
+      "children": [
+        { "id": "background_color", "name": "background_color", "label": "Background Color", "type": "color", "default": { "color": "#ffffff" } }
+      ]
+    }
+  ]

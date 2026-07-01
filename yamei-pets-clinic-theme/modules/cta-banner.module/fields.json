@@ -1,51 +1,16 @@
 [
-    {
-      "id": "badge_text",
-      "name": "badge_text",
-      "label": "Badge Text",
-      "type": "text",
-      "default": "Ready to Book?"
-    },
-    {
-      "id": "title",
-      "name": "title",
-      "label": "Title",
-      "type": "text",
-      "default": "Your Pet Deserves the Best Care"
-    },
-    {
-      "id": "subtitle",
-      "name": "subtitle",
-      "label": "Subtitle",
-      "type": "text",
-      "default": "Book an appointment online or call us directly. Same-day slots and emergency care available."
-    },
-    {
-      "id": "primary_cta_text",
-      "name": "primary_cta_text",
-      "label": "Primary Button Text",
-      "type": "text",
-      "default": "Book Online"
-    },
-    {
-      "id": "primary_cta_url",
-      "name": "primary_cta_url",
-      "label": "Primary Button URL",
-      "type": "link"
-    },
-    {
-      "id": "secondary_cta_text",
-      "name": "secondary_cta_text",
-      "label": "Secondary Button Text",
-      "type": "text",
-      "default": ""
-    },
-    {
-      "id": "secondary_cta_url",
-      "name": "secondary_cta_url",
-      "label": "Secondary Button URL",
-      "type": "link"
-    },
+    { "id": "badge_text_zh", "name": "badge_text_zh", "label": "Badge Text（中文）", "type": "text", "default": "準備好預約了嗎？" },
+    { "id": "badge_text", "name": "badge_text", "label": "Badge Text (English)", "type": "text", "default": "Ready to Book?" },
+    { "id": "title_zh", "name": "title_zh", "label": "Title（中文）", "type": "text", "default": "給您的毛孩最好的照護" },
+    { "id": "title", "name": "title", "label": "Title (English)", "type": "text", "default": "Your Pet Deserves the Best Care" },
+    { "id": "subtitle_zh", "name": "subtitle_zh", "label": "Subtitle（中文）", "type": "text", "default": "線上預約或直接來電，提供當日時段與緊急照護。" },
+    { "id": "subtitle", "name": "subtitle", "label": "Subtitle (English)", "type": "text", "default": "Book an appointment online or call us directly. Same-day slots and emergency care available." },
+    { "id": "primary_button_text_zh", "name": "primary_button_text_zh", "label": "Primary Button Text（中文）", "type": "text", "default": "線上預約" },
+    { "id": "primary_button_text", "name": "primary_button_text", "label": "Primary Button Text (English)", "type": "text", "default": "Book Online" },
+    { "id": "primary_button_url", "name": "primary_button_url", "label": "Primary Button URL", "type": "link" },
+    { "id": "secondary_button_text_zh", "name": "secondary_button_text_zh", "label": "Secondary Button Text（中文）", "type": "text", "default": "" },
+    { "id": "secondary_button_text", "name": "secondary_button_text", "label": "Secondary Button Text (English)", "type": "text", "default": "" },
+    { "id": "secondary_button_url", "name": "secondary_button_url", "label": "Secondary Button URL", "type": "link" },
     {
       "type": "group",
       "id": "style_fields",

@@ -1,9 +1,21 @@
 [
-    { "id": "section_title", "name": "section_title", "label": "Section Title", "type": "text", "default": "Book a Clinic Appointment" },
-    { "id": "section_subtitle", "name": "section_subtitle", "label": "Section Subtitle", "type": "text" },
-    { "id": "hubspot_form_id", "name": "hubspot_form_id", "label": "HubSpot Form ID", "type": "text", "required": true, "default": "hs-booking-form-001" },
+    { "id": "section_title_zh", "name": "section_title_zh", "label": "Section Title（中文）", "type": "text", "default": "預約門診" },
+    { "id": "section_title", "name": "section_title", "label": "Section Title (English)", "type": "text", "default": "Book a Clinic Appointment" },
+    { "id": "section_subtitle_zh", "name": "section_subtitle_zh", "label": "Section Subtitle（中文）", "type": "text", "default": "填寫以下資料，我們的團隊將在數小時內為您確認時段。當日或緊急就診請直接來電。" },
+    { "id": "section_subtitle", "name": "section_subtitle", "label": "Section Subtitle (English)", "type": "text", "default": "Fill in the details below and our team will confirm your slot within a few hours. For same-day or emergency visits, please call us directly." },
+    { "id": "hubspot_form_id", "name": "hubspot_form_id", "label": "HubSpot Form ID（英文）", "type": "text", "required": true, "default": "hs-booking-form-001" },
+    { "id": "hubspot_form_id_zh", "name": "hubspot_form_id_zh", "label": "HubSpot Form ID（中文版，留空則用英文表單）", "type": "text", "default": "d1731941-feca-4174-90cb-ab46710c5c42" },
     { "id": "portal_id", "name": "portal_id", "label": "Portal ID", "type": "text", "required": true, "default": "12345678" },
     { "id": "success_message", "name": "success_message", "label": "Success Message", "type": "richtext" },
     { "id": "show_clinic_info", "name": "show_clinic_info", "label": "Show Clinic Info", "type": "boolean", "default": true },
-    { "id": "show_emergency_card", "name": "show_emergency_card", "label": "Show Emergency Card", "type": "boolean", "default": true }
+    { "id": "clinic_address_zh", "name": "clinic_address_zh", "label": "Clinic Address（中文）", "type": "text", "default": "台南市寵物大道 123 號（708830）" },
+    { "id": "clinic_address", "name": "clinic_address", "label": "Clinic Address (English)", "type": "text", "default": "No. 123 Pets Avenue, Tainan City, Taiwan 708830" },
+    { "id": "clinic_phone", "name": "clinic_phone", "label": "Clinic Phone", "type": "text", "default": "(06) 123-4567" },
+    { "id": "clinic_hours_zh", "name": "clinic_hours_zh", "label": "Clinic Hours（中文）", "type": "text", "default": "週一至週六 9:00 – 18:00" },
+    { "id": "clinic_hours", "name": "clinic_hours", "label": "Clinic Hours (English)", "type": "text", "default": "Mon–Sat: 9AM – 6PM" },
+    { "id": "show_emergency_card", "name": "show_emergency_card", "label": "Show Emergency Card", "type": "boolean", "default": true },
+    { "id": "emergency_title_zh", "name": "emergency_title_zh", "label": "Emergency Title（中文）", "type": "text", "default": "緊急狀況？" },
+    { "id": "emergency_title", "name": "emergency_title", "label": "Emergency Title (English)", "type": "text", "default": "Emergency?" },
+    { "id": "emergency_text_zh", "name": "emergency_text_zh", "label": "Emergency Text（中文）", "type": "text", "default": "請立即致電 (06) 123-4567" },
+    { "id": "emergency_text", "name": "emergency_text", "label": "Emergency Text (English)", "type": "text", "default": "Call us immediately at (06) 123-4567" }
   ]

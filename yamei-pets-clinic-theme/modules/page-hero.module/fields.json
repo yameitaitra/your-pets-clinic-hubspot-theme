@@ -1,49 +1,14 @@
 [
-    {
-      "id": "breadcrumb_parent_label",
-      "name": "breadcrumb_parent_label",
-      "label": "Breadcrumb Parent Label",
-      "type": "text",
-      "default": "Home"
-    },
-    {
-      "id": "breadcrumb_parent_url",
-      "name": "breadcrumb_parent_url",
-      "label": "Breadcrumb Parent URL",
-      "type": "link"
-    },
-    {
-      "id": "breadcrumb_current",
-      "name": "breadcrumb_current",
-      "label": "Breadcrumb Current Page",
-      "type": "text",
-      "default": "Services"
-    },
-    {
-      "id": "badge_text",
-      "name": "badge_text",
-      "label": "Badge Text",
-      "type": "text",
-      "default": "🏥 AAHA Accredited Clinic"
-    },
-    {
-      "id": "hero_title",
-      "name": "hero_title",
-      "label": "Hero Title",
-      "type": "text",
-      "default": "Our Clinic Services"
-    },
-    {
-      "id": "hero_subtitle",
-      "name": "hero_subtitle",
-      "label": "Hero Subtitle",
-      "type": "richtext"
-    },
-    {
-      "id": "background_color",
-      "name": "background_color",
-      "label": "Background Color",
-      "type": "color",
-      "default": { "color": "#0d4f4f" }
-    }
+    { "id": "breadcrumb_parent_label_zh", "name": "breadcrumb_parent_label_zh", "label": "Breadcrumb Parent Label（中文）", "type": "text", "default": "首頁" },
+    { "id": "breadcrumb_parent_label", "name": "breadcrumb_parent_label", "label": "Breadcrumb Parent Label (English)", "type": "text", "default": "Home" },
+    { "id": "breadcrumb_parent_url", "name": "breadcrumb_parent_url", "label": "Breadcrumb Parent URL", "type": "link" },
+    { "id": "breadcrumb_current_zh", "name": "breadcrumb_current_zh", "label": "Breadcrumb Current（中文）", "type": "text" },
+    { "id": "breadcrumb_current", "name": "breadcrumb_current", "label": "Breadcrumb Current (English)", "type": "text", "default": "Services" },
+    { "id": "badge_text_zh", "name": "badge_text_zh", "label": "Badge Text（中文）", "type": "text", "default": "🏥 AAHA 認證診所" },
+    { "id": "badge_text", "name": "badge_text", "label": "Badge Text (English)", "type": "text", "default": "🏥 AAHA Accredited Clinic" },
+    { "id": "hero_title_zh", "name": "hero_title_zh", "label": "Hero Title（中文）", "type": "text" },
+    { "id": "hero_title", "name": "hero_title", "label": "Hero Title (English)", "type": "text", "default": "Our Clinic Services" },
+    { "id": "hero_subtitle_zh", "name": "hero_subtitle_zh", "label": "Hero Subtitle（中文）", "type": "richtext" },
+    { "id": "hero_subtitle", "name": "hero_subtitle", "label": "Hero Subtitle (English)", "type": "richtext" },
+    { "id": "background_color", "name": "background_color", "label": "Background Color", "type": "color", "default": { "color": "#0d4f4f" } }
   ]

@@ -7,23 +7,44 @@
       "required": true
     },
     {
+      "id": "section_label_zh",
+      "name": "section_label_zh",
+      "label": "Section Label（中文）",
+      "type": "text",
+      "default": "認識我們的團隊"
+    },
+    {
       "id": "section_label",
       "name": "section_label",
-      "label": "Section Label",
+      "label": "Section Label (English)",
       "type": "text",
       "default": "Meet the Team"
     },
     {
+      "id": "section_title_zh",
+      "name": "section_title_zh",
+      "label": "Section Title（中文）",
+      "type": "text",
+      "default": "專業獸醫師團隊"
+    },
+    {
       "id": "section_title",
       "name": "section_title",
-      "label": "Section Title",
+      "label": "Section Title (English)",
       "type": "text",
       "default": "Our Expert Veterinarians"
     },
     {
+      "id": "section_subtitle_zh",
+      "name": "section_subtitle_zh",
+      "label": "Section Subtitle（中文）",
+      "type": "text",
+      "default": "持有專業認證的醫師，以專業與愛心守護每位毛孩的健康。"
+    },
+    {
       "id": "section_subtitle",
       "name": "section_subtitle",
-      "label": "Section Subtitle",
+      "label": "Section Subtitle (English)",
       "type": "text",
       "default": "Board-certified doctors with deep specializations, united by a shared commitment to the health and happiness of every patient."
     },
@@ -42,9 +63,16 @@
       "default": true
     },
     {
+      "id": "cta_text_zh",
+      "name": "cta_text_zh",
+      "label": "CTA Text（中文）",
+      "type": "text",
+      "default": "查看所有醫師"
+    },
+    {
       "id": "cta_text",
       "name": "cta_text",
-      "label": "CTA Text",
+      "label": "CTA Text (English)",
       "type": "text",
       "default": "View All Doctors"
     },

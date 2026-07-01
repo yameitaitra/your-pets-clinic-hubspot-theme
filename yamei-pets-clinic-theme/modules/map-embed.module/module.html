@@ -1,0 +1,31 @@
+{# t(zh, en)：中文頁且 zh 有值 → 顯示 zh，否則退回 en #}
+{% macro t(zh, en) %}{% if html_lang == "zh-tw" and zh %}{{ zh }}{% else %}{{ en }}{% endif %}{% endmacro %}
+<section class="map-embed">
+  <div class="map-embed__wrap" style="border-radius: {{ module.border_radius }}px;">
+
+    {% if module.embed_url %}
+    <iframe
+      class="map-embed__frame"
+      src="{{ module.embed_url }}"
+      style="height: {{ module.map_height }}px; border-radius: {{ module.border_radius }}px;"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allowfullscreen>
+    </iframe>
+    {% else %}
+    <div class="map-embed__placeholder" style="height: {{ module.map_height }}px;">🗺️ {{ t("請在模組設定填入 Google Maps 嵌入網址", "Enter a Google Maps embed URL in the module settings") }}</div>
+    {% endif %}
+
+    {% if module.show_card %}
+    <div class="map-embed__card">
+      <div class="map-embed__card-name">📍 {{ t(module.clinic_name_zh, module.clinic_name) }}</div>
+      <div class="map-embed__card-addr">{{ t(module.address_zh, module.address) }}</div>
+      {% if module.show_directions_link and module.directions_url %}
+      <a class="map-embed__btn map-embed__btn--primary" href="{{ module.directions_url }}" target="_blank" rel="noopener">✈️ {{ t("路線規劃", "Get Directions") }}</a>
+      <a class="map-embed__btn map-embed__btn--ghost" href="{{ module.directions_url }}" target="_blank" rel="noopener">🔗 {{ t("在 Google 地圖開啟", "Open in Google Maps") }}</a>
+      {% endif %}
+    </div>
+    {% endif %}
+
+  </div>
+</section>

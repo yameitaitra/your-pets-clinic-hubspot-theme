@@ -1,3 +1,5 @@
+{# t(zh, en)：中文頁且 zh 有值 → 顯示 zh，否則退回 en #}
+{% macro t(zh, en) %}{% if html_lang == "zh-tw" and zh %}{{ zh }}{% else %}{{ en }}{% endif %}{% endmacro %}
 {% set query_limit = module.limit %}
 {% if query_limit > 0 %}
   {% set rows = hubdb_table_rows(module.hubdb_table_id, 'orderBy=id&limit=' ~ query_limit) %}
@@ -9,14 +11,14 @@
   <div class="doctor-grid__inner">
 
     <div class="doctor-grid__header">
-      {% if module.section_label %}
-      <p class="doctor-grid__label">{{ module.section_label }}</p>
+      {% if module.section_label or module.section_label_zh %}
+      <p class="doctor-grid__label">{{ t(module.section_label_zh, module.section_label) }}</p>
       {% endif %}
-      {% if module.section_title %}
-      <h2 class="doctor-grid__title">{{ module.section_title }}</h2>
+      {% if module.section_title or module.section_title_zh %}
+      <h2 class="doctor-grid__title">{{ t(module.section_title_zh, module.section_title) }}</h2>
       {% endif %}
-      {% if module.section_subtitle %}
-      <p class="doctor-grid__subtitle">{{ module.section_subtitle }}</p>
+      {% if module.section_subtitle or module.section_subtitle_zh %}
+      <p class="doctor-grid__subtitle">{{ t(module.section_subtitle_zh, module.section_subtitle) }}</p>
       {% endif %}
     </div>
 
@@ -25,29 +27,27 @@
       <div class="doctor-card">
         <div class="doctor-card__image-wrap">
           {% if row.photo %}
-          <img src="{{ row.photo.url }}" alt="{{ row.name }}" class="doctor-card__image">
+          <img src="{{ row.photo.url }}" alt="{{ t(row.name_zh, row.name) }}" class="doctor-card__image">
           {% else %}
           <div class="doctor-card__image-placeholder">🐾</div>
           {% endif %}
           <div class="doctor-card__overlay">
-            <p class="doctor-card__overlay-title">{{ row.title }}</p>
-            <p class="doctor-card__overlay-name">{{ row.name }}</p>
+            <p class="doctor-card__overlay-title">{{ t(row.title_zh, row.title) }}</p>
+            <p class="doctor-card__overlay-name">{{ t(row.name_zh, row.name) }}</p>
           </div>
         </div>
         <div class="doctor-card__body">
-          {% if row.specialty %}
-          <span class="doctor-card__specialty">🐾 {{ row.specialty }}</span>
+          {% if row.specialty or row.specialty_zh %}
+          <span class="doctor-card__specialty">🐾 {{ t(row.specialty_zh, row.specialty) }}</span>
           {% endif %}
         </div>
       </div>
       {% endfor %}
     </div>
 
-    {% if module.show_cta and module.cta_text %}
+    {% if module.show_cta and (module.cta_text or module.cta_text_zh) %}
     <div class="doctor-grid__footer">
-      <a href="{{ module.cta_url.url.href }}" class="doctor-grid__cta">
-        {{ module.cta_text }}
-      </a>
+      <a href="{{ module.cta_url.url.href }}" class="doctor-grid__cta">{{ t(module.cta_text_zh, module.cta_text) }}</a>
     </div>
     {% endif %}
 

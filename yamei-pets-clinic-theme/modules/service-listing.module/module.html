@@ -1,69 +1,74 @@
+{# t(zh, en)：中文頁且 zh 有值 → 顯示 zh，否則退回 en #}
+{% macro t(zh, en) %}{% if html_lang == "zh-tw" and zh %}{{ zh }}{% else %}{{ en }}{% endif %}{% endmacro %}
 {% set all_rows = hubdb_table_rows(module.hubdb_table_id, 'orderBy=name') %}
 
 <section class="service-listing">
   <div class="service-listing__inner">
 
-    {% if module.section_badge %}
-    <div class="service-listing__badge">{{ module.section_badge }}</div>
+    {% if module.section_badge or module.section_badge_zh %}
+    <div class="service-listing__badge">{{ t(module.section_badge_zh, module.section_badge) }}</div>
     {% endif %}
-    {% if module.section_title %}
-    <h2 class="service-listing__title">{{ module.section_title }}</h2>
+    {% if module.section_title or module.section_title_zh %}
+    <h2 class="service-listing__title">{{ t(module.section_title_zh, module.section_title) }}</h2>
     {% endif %}
-    {% if module.section_subtitle %}
-    <p class="service-listing__subtitle">{{ module.section_subtitle }}</p>
+    {% if module.section_subtitle or module.section_subtitle_zh %}
+    <p class="service-listing__subtitle">{{ t(module.section_subtitle_zh, module.section_subtitle) }}</p>
     {% endif %}
 
     {% if module.show_filters %}
     <div class="service-listing__filters">
       <button class="service-listing__filter active" data-filter="all">
-        All <span class="service-listing__filter-count">{{ all_rows|length }}</span>
+        {{ t(module.label_all_zh, module.label_all) }} <span class="service-listing__filter-count">{{ all_rows|length }}</span>
       </button>
-      {% set categories = [] %}
+      {# 收集每個分類的第一筆 row，才能同時取到 category(英) 與 category_zh(中) #}
+      {% set cat_seen = [] %}
+      {% set cat_rows = [] %}
       {% for row in all_rows %}
-        {% if row.category not in categories %}
-          {% set categories = categories + [row.category] %}
+        {% if row.category.name not in cat_seen %}
+          {% set cat_seen = cat_seen + [row.category.name] %}
+          {% set cat_rows = cat_rows + [row] %}
         {% endif %}
       {% endfor %}
-      {% for cat in categories %}
-      {% set cat_count = all_rows | selectattr('category', 'equalto', cat) | list | length %}
-      <button class="service-listing__filter" data-filter="{{ cat }}">
-        {{ cat }} <span class="service-listing__filter-count">{{ cat_count }}</span>
+      {% for crow in cat_rows %}
+      {% set cat_count = all_rows | selectattr('category.name', 'equalto', crow.category.name) | list | length %}
+      <button class="service-listing__filter" data-filter="{{ crow.category.name }}">
+        {{ t(crow.category_zh.label, crow.category.name) }} <span class="service-listing__filter-count">{{ cat_count }}</span>
       </button>
       {% endfor %}
     </div>
     {% endif %}
 
     <p class="service-listing__count">
-      Showing {{ [module.items_per_page, all_rows|length] | min }} of {{ all_rows|length }} services · Page 1 of {{ ((all_rows|length) / module.items_per_page)|round(0, 'ceil')|int }}
+      {{ t(module.label_showing_zh, module.label_showing) }} {{ [module.items_per_page, all_rows|length] | min }} {{ t(module.label_of_zh, module.label_of) }} {{ all_rows|length }} {{ t(module.label_unit_zh, module.label_unit) }} · {{ t(module.label_page_zh, module.label_page) }} 1 {{ t(module.label_of_zh, module.label_of) }} {{ ((all_rows|length) / module.items_per_page)|round(0, 'ceil')|int }}
     </p>
 
     <div class="service-listing__list" id="service-list">
       {% for row in all_rows %}
-      <div class="service-listing__item" data-category="{{ row.category }}">
+      <div class="service-listing__item" data-category="{{ row.category.name }}">
         <div class="service-listing__item-image">
           {% if row.image %}
-          <img src="{{ row.image.url }}" alt="{{ row.name }}">
+          <img src="{{ row.image.url }}" alt="{{ t(row.name_zh, row.name) }}">
           {% else %}
           <div class="service-listing__item-placeholder">🐾</div>
           {% endif %}
           {% if row.popular %}
-          <span class="service-listing__item-badge service-listing__item-badge--popular">Popular</span>
+          <span class="service-listing__item-badge service-listing__item-badge--popular">{{ t(module.label_popular_zh, module.label_popular) }}</span>
           {% endif %}
-          <span class="service-listing__item-badge service-listing__item-badge--cat">{{ row.category }}</span>
+          <span class="service-listing__item-badge service-listing__item-badge--cat">{{ t(row.category_zh.label, row.category.name) }}</span>
         </div>
         <div class="service-listing__item-content">
           <div class="service-listing__item-top">
-            <h3 class="service-listing__item-name">{{ row.name }}</h3>
+            <h3 class="service-listing__item-name">{{ t(row.name_zh, row.name) }}</h3>
             {% if row.popular %}
-            <span class="service-listing__item-popular">Popular</span>
+            <span class="service-listing__item-popular">{{ t(module.label_popular_zh, module.label_popular) }}</span>
             {% endif %}
           </div>
-          <p class="service-listing__item-desc">{{ row.description }}</p>
+          <p class="service-listing__item-desc">{{ t(row.description_zh, row.description) }}</p>
           <div class="service-listing__item-meta">
             🕐 {{ row.duration }}
           </div>
           <a href="{{ module.book_cta_url.url.href }}" class="service-listing__item-cta">
-            {{ module.book_cta_text }} →
+            {{ t(module.book_cta_text_zh, module.book_cta_text) }} →
           </a>
         </div>
       </div>
