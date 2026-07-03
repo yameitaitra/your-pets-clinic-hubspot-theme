@@ -1,3 +1,5 @@
+{# t(zh, en)：中文頁且 zh 有值 → 顯示 zh，否則退回 en #}
+{% macro t(zh, en) %}{% if html_lang == "zh-tw" and zh %}{{ zh }}{% else %}{{ en }}{% endif %}{% endmacro %}
 <section class="campaign-hero">
   {% if module.background_image.src %}
     <img src="{{ module.background_image.src }}" alt="{{ module.background_image.alt }}" class="campaign-hero__bg">
@@ -5,33 +7,33 @@
   <div class="campaign-hero__overlay" style="opacity: {{ module.overlay_opacity / 100 }}"></div>
 
   <div class="campaign-hero__inner">
-    {% if module.badge_text %}
-      <div class="campaign-hero__badge">🎉 {{ module.badge_text }}</div>
+    {% if module.badge_text or module.badge_text_zh %}
+      <div class="campaign-hero__badge">🎉 {{ t(module.badge_text_zh, module.badge_text) }}</div>
     {% endif %}
 
-    {% if module.headline %}
-      <div class="campaign-hero__headline">{{ module.headline }}</div>
+    {% if module.headline or module.headline_zh %}
+      <div class="campaign-hero__headline">{% if html_lang == "zh-tw" and module.headline_zh %}{{ module.headline_zh }}{% else %}{{ module.headline }}{% endif %}</div>
     {% endif %}
 
-    {% if module.subtext %}
-      <p class="campaign-hero__subtext">{{ module.subtext }}</p>
+    {% if module.subtext or module.subtext_zh %}
+      <p class="campaign-hero__subtext">{{ t(module.subtext_zh, module.subtext) }}</p>
     {% endif %}
 
     <div class="campaign-hero__trust">
-      {% if module.trust_badge_1 %}<span class="campaign-hero__trust-item">{{ module.trust_badge_1 }}</span>{% endif %}
-      {% if module.trust_badge_2 %}<span class="campaign-hero__trust-item">{{ module.trust_badge_2 }}</span>{% endif %}
-      {% if module.trust_badge_3 %}<span class="campaign-hero__trust-item">{{ module.trust_badge_3 }}</span>{% endif %}
+      {% if module.trust_badge_1 or module.trust_badge_1_zh %}<span class="campaign-hero__trust-item">{{ t(module.trust_badge_1_zh, module.trust_badge_1) }}</span>{% endif %}
+      {% if module.trust_badge_2 or module.trust_badge_2_zh %}<span class="campaign-hero__trust-item">{{ t(module.trust_badge_2_zh, module.trust_badge_2) }}</span>{% endif %}
+      {% if module.trust_badge_3 or module.trust_badge_3_zh %}<span class="campaign-hero__trust-item">{{ t(module.trust_badge_3_zh, module.trust_badge_3) }}</span>{% endif %}
     </div>
 
     <div class="campaign-hero__ctas">
-      {% if module.primary_cta_text %}
-        <a href="{{ module.primary_cta_url.url.href|default('/contact') }}" class="campaign-hero__btn campaign-hero__btn--primary">
-          {{ module.primary_cta_text }}
+      {% if module.primary_cta_text or module.primary_cta_text_zh %}
+        <a href="{{ module.primary_cta_url.url.href|default('/yamei/booking') }}" class="campaign-hero__btn campaign-hero__btn--primary">
+          {{ t(module.primary_cta_text_zh, module.primary_cta_text) }}
         </a>
       {% endif %}
-      {% if module.secondary_cta_text and module.secondary_cta_phone %}
+      {% if (module.secondary_cta_text or module.secondary_cta_text_zh) and module.secondary_cta_phone %}
         <a href="tel:{{ module.secondary_cta_phone }}" class="campaign-hero__btn campaign-hero__btn--secondary">
-          📞 {{ module.secondary_cta_text }}
+          📞 {{ t(module.secondary_cta_text_zh, module.secondary_cta_text) }}
         </a>
       {% endif %}
     </div>

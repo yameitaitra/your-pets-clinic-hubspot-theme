@@ -34,7 +34,25 @@
       {% endif %}
     </nav>
 
-    <!-- Custom Language Switcher (老師同款 dropdown) -->
+    <!-- Custom Language Switcher (老師同款 dropdown，動態指向當前頁的另一語言版本) -->
+    {# translated_content 只含「其他語言」的變體；當前語言用 content.absolute_url。
+       若這一頁沒有連結對應語言變體，退回首頁（等同舊行為，不會壞掉）。 #}
+    {% set en_variant = content.translated_content['en'] %}
+    {% set zh_variant = content.translated_content['zh-tw'] %}
+    {% if html_lang != "zh-tw" %}
+      {% set en_href = content.absolute_url %}
+    {% elif en_variant and en_variant.published %}
+      {% set en_href = en_variant.absoluteUrl %}
+    {% else %}
+      {% set en_href = "/en/yamei/home" %}
+    {% endif %}
+    {% if html_lang == "zh-tw" %}
+      {% set zh_href = content.absolute_url %}
+    {% elif zh_variant and zh_variant.published %}
+      {% set zh_href = zh_variant.absoluteUrl %}
+    {% else %}
+      {% set zh_href = "/yamei/home" %}
+    {% endif %}
     <div class="yp-lang">
       <button class="yp-lang__toggle" type="button" aria-haspopup="true" aria-expanded="false">
         <span class="yp-lang__globe">🌐</span>
@@ -45,14 +63,14 @@
       </button>
       <ul class="yp-lang__menu" hidden>
         <li>
-          <a href="/en/yamei/home" class="yp-lang__item hs-skip-lang-url-rewrite {% if html_lang != 'zh-tw' %}is-active{% endif %}">
+          <a href="{{ en_href }}" class="yp-lang__item hs-skip-lang-url-rewrite {% if html_lang != 'zh-tw' %}is-active{% endif %}">
             <span class="yp-lang__code">US</span>
             <span class="yp-lang__label">English</span>
             {% if html_lang != "zh-tw" %}<span class="yp-lang__check">✓</span>{% endif %}
           </a>
         </li>
         <li>
-          <a href="/yamei/home" class="yp-lang__item hs-skip-lang-url-rewrite {% if html_lang == 'zh-tw' %}is-active{% endif %}">
+          <a href="{{ zh_href }}" class="yp-lang__item hs-skip-lang-url-rewrite {% if html_lang == 'zh-tw' %}is-active{% endif %}">
             <span class="yp-lang__code">TW</span>
             <span class="yp-lang__label">繁體中文</span>
             {% if html_lang == "zh-tw" %}<span class="yp-lang__check">✓</span>{% endif %}

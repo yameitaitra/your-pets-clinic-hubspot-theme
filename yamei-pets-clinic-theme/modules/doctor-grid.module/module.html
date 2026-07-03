@@ -1,5 +1,7 @@
 {# t(zh, en)：中文頁且 zh 有值 → 顯示 zh，否則退回 en #}
 {% macro t(zh, en) %}{% if html_lang == "zh-tw" and zh %}{{ zh }}{% else %}{{ en }}{% endif %}{% endmacro %}
+{# CTA URL 留空時，依語言自動連到「所有醫師」頁 #}
+{% if html_lang == "zh-tw" %}{% set default_all_doctors_url = "/yamei/our-doctors" %}{% else %}{% set default_all_doctors_url = "/en/yamei/our-doctors" %}{% endif %}
 {% set query_limit = module.limit %}
 {% if query_limit > 0 %}
   {% set rows = hubdb_table_rows(module.hubdb_table_id, 'orderBy=id&limit=' ~ query_limit) %}
@@ -47,7 +49,7 @@
 
     {% if module.show_cta and (module.cta_text or module.cta_text_zh) %}
     <div class="doctor-grid__footer">
-      <a href="{{ module.cta_url.url.href }}" class="doctor-grid__cta">{{ t(module.cta_text_zh, module.cta_text) }}</a>
+      <a href="{{ module.cta_url.url.href|default(default_all_doctors_url, true) }}" class="doctor-grid__cta">{{ t(module.cta_text_zh, module.cta_text) }}</a>
     </div>
     {% endif %}
 

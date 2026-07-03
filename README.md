@@ -15,9 +15,10 @@ theme-level settings that are live-editable in the Theme Editor.
 
 - **Page templates with drag-and-drop areas**: a standard website page
   template (`home.html`, extends `base.html`, full header/footer + 5 dnd
-  areas) and a dedicated landing page template (`landing-page.html`, extends
-  a minimal `layouts/base.html` with no site nav, for campaign/conversion
-  pages).
+  areas) and a dedicated landing page template (`landing-page.html`, also
+  extends `base.html` so it keeps the global header/footer and language
+  switcher, with a drag-and-drop area pre-built from the `campaign-hero`,
+  `why-choose-us` and `cta-banner` modules — all bilingual).
 - **17 custom modules** covering Fields, Style Fields, a Repeater pattern,
   and HubDB integration (see [Modules](#modules) below).
 - **Global header & footer** as global partials, editable once and reflected
@@ -39,7 +40,7 @@ your-pets-clinic-hubspot-theme/
     ├── theme.json
     ├── fields.json                  # 6 theme settings
     ├── templates/                   # page templates (incl. book.html, landing-page.html)
-    │   └── layouts/base.html        # minimal layout used by landing pages
+    │   └── layouts/base.html        # HubSpot boilerplate layout (unused; landing pages use base.html)
     ├── partials/
     │   ├── global-header.html       # global partial: nav + language switcher
     │   └── global-footer.html       # global partial: footer
@@ -130,10 +131,32 @@ is needed; just Publish.
   (Chinese) page before creating the variation. HubSpot's "Create variation"
   copies the module instances as-is, so the English variant already has its
   `_en` content ready — publish it and you're done, no translation step.
-- The language switcher lives in the global header
+- **Dynamic language switcher**: the switcher lives in the global header
   ([partials/global-header.html](yamei-pets-clinic-theme/partials/global-header.html))
-  and its links use the `hs-skip-lang-url-rewrite` class so HubSpot doesn't
-  fight the custom routing.
+  and links to the *current page's* counterpart in the other language, not a
+  fixed URL. It reads HubSpot's built-in `content.translated_content` (each
+  linked language variant, exposing `.absoluteUrl` and `.published`) and uses
+  `content.absolute_url` for the language you're already on:
+  ```jinja
+  {% set en_variant = content.translated_content['en'] %}
+  {% if html_lang != "zh-tw" %}
+    {% set en_href = content.absolute_url %}
+  {% elif en_variant and en_variant.published %}
+    {% set en_href = en_variant.absoluteUrl %}
+  {% else %}
+    {% set en_href = "/en/yamei/home" %}   {# fallback if no variant is linked #}
+  {% endif %}
+  ```
+  Each link also carries the `hs-skip-lang-url-rewrite` class so HubSpot serves
+  the exact URL instead of applying its own language redirect.
+- **Language groups are a prerequisite**: `content.translated_content` is only
+  populated when the Chinese and English pages are connected as *language
+  variants* in HubSpot. Every page in this project (Home, Services, Our
+  Doctors, Contact, Booking, Campaign) is linked as a zh-TW / EN group, which
+  is what lets the switcher resolve correctly on every page. Always build the
+  English page with **Create variation** from the Chinese source so the group
+  link is automatic — a standalone page has no `translated_content`, so the
+  switcher would fall back to the homepage.
 
 ## Theme Settings
 
@@ -179,8 +202,10 @@ HubDB integration:
 
 - `home.html` — website page template, extends `base.html`, 5 dnd areas
   (hero / trust / services / carousel / cta).
-- `landing-page.html` — landing page template, extends a stripped-down
-  `layouts/base.html` (no site navigation), dnd area for campaign content.
+- `landing-page.html` — landing page template, extends `base.html` (keeps the
+  global header/footer + language switcher). Its drag-and-drop area ships with
+  a bilingual `campaign-hero`, `why-choose-us` (repeater) and `cta-banner`,
+  and is fully editable in the page editor.
 - `book.html` — dedicated appointment booking page template.
 - Plus `services.html`, `contact.html`, `our-doctors.html`, `campaign.html`,
   `about.html`, `pricing.html`, and blog templates.
@@ -192,4 +217,4 @@ theme settings change, language switching]
 
 ## Author
 
-Built by [your name] for a HubSpot CMS Developer course FINAL project.
+Built by Ya-Mei for a HubSpot CMS Developer course FINAL project.

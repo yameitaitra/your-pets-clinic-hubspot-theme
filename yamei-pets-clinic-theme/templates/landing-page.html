@@ -1,41 +1,55 @@
 <!--
   templateType: page
+  label: "Landing Page - Campaign"
   isAvailableForNewContent: true
-  label: Landing page
-  screenshotPath: ../images/template-previews/landing-page.png
 -->
-{% extends "./layouts/base.html" %}
+{% extends "./base.html" %}
 
-{% block header %}
-  {% global_partial path="./partials/header-no-navigation.html" %}
-{% endblock header %}
-
-{% block body %}
-{% dnd_area "dnd_area"
-  label="Main section",
-  class="body-container body-container--landing-page"
-%}
-
-  {# Hero banner #}
-
-  {% include_dnd_partial
-    path="../sections/hero-banner.html"
-    context={
-      "content": "<h1>Download your free eBook</h1><p>Use this space to tell everyone what your eBook is all about.</p>"
-    }
+{% block main %}
+  {% dnd_area "landing_main"
+    label="Landing Page Content"
   %}
 
-  {# Three column image with text #}
+    {# ===== Campaign Hero（雙語） ===== #}
+    {% dnd_section %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module "landing_hero"
+            path="./modules/campaign-hero",
+            label="Campaign Hero"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
 
-  {% include_dnd_partial
-    path="../sections/multi-column-content.html",
-    context={
-      "background_color": "#FFFFFF"
-    }
-  %}
+    {# ===== Why Choose Us（雙語，含 repeater + 統計數字） ===== #}
+    {% dnd_section %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module "landing_why"
+            path="./modules/why-choose-us",
+            label="Why Choose Us"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
 
-{% end_dnd_area %}
-{% endblock body %}
+    {# ===== 結尾 CTA（雙語，按鈕指向預約頁） ===== #}
+    {% dnd_section %}
+      {% dnd_column %}
+        {% dnd_row %}
+          {% dnd_module "landing_cta"
+            path="./modules/cta-banner",
+            label="Closing CTA",
+            primary_button_text_zh="立即線上預約",
+            primary_button_text="Book Online Now"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
 
-{% block footer %}
-{% endblock footer %}
+  {% end_dnd_area %}
+{% endblock %}
