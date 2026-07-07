@@ -2,7 +2,7 @@
 
 A fully bilingual (Traditional Chinese / English) HubSpot CMS theme built for
 a pet clinic, developed as the FINAL project for a HubSpot CMS Developer
-course. The theme ships with 17 reusable custom modules (including
+course. The theme ships with 18 reusable custom modules (including
 HubDB-connected modules and repeaters), page templates with drag-and-drop
 areas, a global header/footer with a working language switcher, and 6
 theme-level settings that are live-editable in the Theme Editor.
@@ -19,7 +19,7 @@ theme-level settings that are live-editable in the Theme Editor.
   extends `base.html` so it keeps the global header/footer and language
   switcher, with a drag-and-drop area pre-built from the `campaign-hero`,
   `why-choose-us` and `cta-banner` modules — all bilingual).
-- **17 custom modules** covering Fields, Style Fields, a Repeater pattern,
+- **18 custom modules** covering Fields, Style Fields, a Repeater pattern,
   and HubDB integration (see [Modules](#modules) below).
 - **Global header & footer** as global partials, editable once and reflected
   site-wide.
@@ -44,7 +44,7 @@ your-pets-clinic-hubspot-theme/
     ├── partials/
     │   ├── global-header.html       # global partial: nav + language switcher
     │   └── global-footer.html       # global partial: footer
-    ├── modules/                     # 17 custom modules
+    ├── modules/                     # 18 custom modules
     └── css/theme-overrides.css
 ```
 
@@ -122,9 +122,10 @@ is needed; just Publish.
   ```jinja
   {% macro t(zh, en) %}{% if html_lang == "zh-tw" and zh %}{{ zh }}{% else %}{{ en }}{% endif %}{% endmacro %}
   ```
-- HubDB-backed modules (`service-cards`, `service-listing`, `doctor-grid`)
-  read the `_zh` columns from HubDB (e.g. `name_zh`, `description_zh`,
-  `category_zh.label` for select columns) through the same `t()` pattern.
+- HubDB-backed modules (`service-cards`, `service-listing`, `doctor-grid`,
+  `patient-testimonials`) read the `_zh` columns from HubDB (e.g. `name_zh`,
+  `description_zh`, `category_zh.label` for select columns) through the same
+  `t()` pattern.
 - The global header/footer switch language directly via
   `{% if html_lang == "zh-tw" %}`.
 - **Golden rule**: fill in both the Chinese and English fields on the source
@@ -175,7 +176,7 @@ in the Theme Editor (Marketing → Website → Themes → Yamei Pets Clinic Them
 
 ## Modules
 
-17 custom modules, covering Fields + Style Fields, a Repeater pattern, and
+18 custom modules, covering Fields + Style Fields, a Repeater pattern, and
 HubDB integration:
 
 | Module | Repeater | Style Fields | HubDB |
@@ -187,13 +188,14 @@ HubDB integration:
 | campaign-hero | | | |
 | contact-info | | ✅ | |
 | cta-banner | | ✅ | |
-| doctor-grid | | ✅ | ✅ (`clinic_doctors`) |
+| doctor-grid | | ✅ | ✅ (`yamei_clinicdoctors`) |
 | map-embed | | | |
 | menu | | ✅ | |
 | page-hero | | | |
+| patient-testimonials | | ✅ | ✅ (`yamei_clinicreviews`) |
 | pricing-card | ✅ | ✅ | |
-| service-cards | | ✅ | ✅ (`clinic_services`) |
-| service-listing | | | ✅ (`clinic_services`) |
+| service-cards | | ✅ | ✅ (`yamei_clinicservices`) |
+| service-listing | | | ✅ (`yamei_clinicservices`) |
 | social-follow | ✅ | ✅ | |
 | trust-badges | ✅ | ✅ | |
 | why-choose-us | ✅ | | |

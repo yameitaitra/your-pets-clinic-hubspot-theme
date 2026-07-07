@@ -1,5 +1,5 @@
 [
-    { "id": "hubdb_table_id", "name": "hubdb_table_id", "label": "HubDB Table (clinic_services)", "type": "hubdbtable", "required": true },
+    { "id": "hubdb_table_id", "name": "hubdb_table_id", "label": "HubDB Table (yamei_clinicservices)", "type": "hubdbtable", "required": true },
     { "id": "section_label_zh", "name": "section_label_zh", "label": "Section Label（中文）", "type": "text", "default": "我們的服務" },
     { "id": "section_label", "name": "section_label", "label": "Section Label (English)", "type": "text", "default": "What We Offer" },
     { "id": "section_title_zh", "name": "section_title_zh", "label": "Section Title（中文）", "type": "text", "default": "服務項目" },

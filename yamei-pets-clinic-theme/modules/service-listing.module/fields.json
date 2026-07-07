@@ -2,7 +2,7 @@
     {
       "id": "hubdb_table_id",
       "name": "hubdb_table_id",
-      "label": "HubDB Table (clinic_services)",
+      "label": "HubDB Table (yamei_clinicservices)",
       "type": "hubdbtable",
       "required": true
     },

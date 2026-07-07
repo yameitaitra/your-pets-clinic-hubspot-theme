@@ -1,0 +1,19 @@
+[
+    { "id": "hubdb_table_id", "name": "hubdb_table_id", "label": "HubDB Table (yamei_clinicreviews)", "type": "hubdbtable", "required": true },
+    { "id": "section_label_zh", "name": "section_label_zh", "label": "Section Label（中文）", "type": "text", "default": "寵物主人怎麼說" },
+    { "id": "section_label", "name": "section_label", "label": "Section Label (English)", "type": "text", "default": "What Pet Parents Say" },
+    { "id": "section_title_zh", "name": "section_title_zh", "label": "Section Title（中文）", "type": "text", "default": "真實家庭的真實故事" },
+    { "id": "section_title", "name": "section_title", "label": "Section Title (English)", "type": "text", "default": "Real Stories from Real Families" },
+    { "id": "max_reviews", "name": "max_reviews", "label": "Max Reviews to Show", "type": "number", "default": 3 },
+    { "id": "show_date", "name": "show_date", "label": "Show Review Date", "type": "boolean", "default": true },
+    {
+      "type": "group",
+      "id": "style_fields",
+      "name": "style_fields",
+      "label": "Styles",
+      "tab": "STYLE",
+      "children": [
+        { "id": "background_color", "name": "background_color", "label": "Background Color", "type": "color", "default": { "color": "#ffffff" } }
+      ]
+    }
+  ]

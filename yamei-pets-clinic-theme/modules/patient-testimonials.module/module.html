@@ -1,0 +1,51 @@
+{# t(zh, en)：中文頁且 zh 有值 → 顯示 zh，否則退回 en #}
+{% macro t(zh, en) %}{% if html_lang == "zh-tw" and zh %}{{ zh }}{% else %}{{ en }}{% endif %}{% endmacro %}
+{% set query_limit = module.max_reviews %}
+{% if query_limit > 0 %}
+  {% set rows = hubdb_table_rows(module.hubdb_table_id, 'orderBy=id&limit=' ~ query_limit) %}
+{% else %}
+  {% set rows = hubdb_table_rows(module.hubdb_table_id, 'orderBy=id') %}
+{% endif %}
+
+<section class="testimonials" style="background-color: {{ module.style_fields.background_color.color }}">
+  <div class="testimonials__inner">
+
+    <div class="testimonials__header">
+      {% if module.section_label or module.section_label_zh %}
+      <p class="testimonials__label">{{ t(module.section_label_zh, module.section_label) }}</p>
+      {% endif %}
+      {% if module.section_title or module.section_title_zh %}
+      <h2 class="testimonials__title">{{ t(module.section_title_zh, module.section_title) }}</h2>
+      {% endif %}
+    </div>
+
+    <div class="testimonials__grid">
+      {% for row in rows %}
+      <div class="testimonial-card">
+        <div class="testimonial-card__top">
+          <div class="testimonial-card__stars">
+            {% for i in [1,2,3,4,5] %}{% if i <= row.rating %}★{% else %}☆{% endif %}{% endfor %}
+          </div>
+          <span class="testimonial-card__quote-icon">”</span>
+        </div>
+
+        <p class="testimonial-card__quote">{{ t(row.quote_zh, row.quote) }}</p>
+
+        <div class="testimonial-card__footer">
+          <div class="testimonial-card__meta">
+            <p class="testimonial-card__name">{{ t(row.reviewer_name_zh, row.reviewer_name) }}</p>
+            <p class="testimonial-card__sub">
+              {{ t(row.reviewer_type_zh, row.reviewer_type) }}
+              {% if module.show_date and row.review_date %}
+                {# HubDB Date 欄位只存一份，格式依語言用 format_datetime 現算，不必存兩份文字 #}
+                · {% if html_lang == "zh-tw" %}{{ row.review_date | format_datetime("yyyy'年'M'月'") }}{% else %}{{ row.review_date | format_datetime("MMM yyyy") }}{% endif %}
+              {% endif %}
+            </p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
