@@ -2,7 +2,8 @@
 {% macro t(zh, en) %}{% if html_lang == "zh-tw" and zh %}{{ zh }}{% else %}{{ en }}{% endif %}{% endmacro %}
 {# 主按鈕 URL 留空時，依語言自動連到預約頁 #}
 {% if html_lang == "zh-tw" %}{% set default_booking_url = "/yamei/booking" %}{% else %}{% set default_booking_url = "/en/yamei/booking" %}{% endif %}
-<section class="cta-banner text--{{ module.style_fields.text_alignment|default('center') }}">
+<section class="cta-banner text--{{ module.style_fields.text_alignment|default('center') }}"
+         style="background-color: {{ module.style_fields.background_color.color|default('#0d4f4f') }};">
   <div class="cta-banner__inner">
     {% if module.badge_text or module.badge_text_zh %}
       <span class="cta-banner__badge">⭐ {{ t(module.badge_text_zh, module.badge_text) }}</span>
