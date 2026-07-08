@@ -213,9 +213,8 @@ HubDB integration:
   `about.html`, `pricing.html`, and blog templates.
 
 ## Demo Video
-
-[Add the 5–8 minute demo video link here — page creation, module editing,
-theme settings change, language switching]
+https://www.loom.com/share/c796dfcd733743f0b148bd5cb133f5cc
+https://www.loom.com/share/206faf207fbb4b26adf0a6d04684b7f0
 
 ## Author
 
